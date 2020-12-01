@@ -1,0 +1,144 @@
+<?php
+
+/* ************************************************************************** */
+/*                                 CONNEXION BDD                              */
+/* ************************************************************************** */
+
+require_once "../../../config/class-singleton.php";
+
+/* ************************************ . *********************************** */
+
+require_once "../../../Model/ArticleModel.php";
+require_once "../../../Entity/Article.php";
+require_once "../../../outil/outil.php";
+
+/* ************************************************************************** */
+
+$errors  = array();
+$id = 0;
+
+if (isset($_GET['id'])) {
+
+    $id = intval($_GET['id']);
+}
+
+$articleModel = new ArticleModel();
+$article = $articleModel->selectArticleById($id);
+
+
+if (isset($_POST['update'])) {
+
+    if (!empty($_POST['titre'])) {
+        $titre = strip_tags(htmlspecialchars(trim(($_POST['titre']))));
+    } else {
+        $errors[] =  "veuillez rentrer un titre dans le champ qui va bien ;-P ";
+    }
+
+    if (!empty($_POST['description'])) {
+        $description = strip_tags(htmlspecialchars(trim(($_POST['description']))));
+    } else {
+        $errors[] =  "veuillez rentrer un description dans le champ qui va bien ;-P ";
+    }
+
+    if (!empty($_POST['prix'])) {
+        $prix = strip_tags(htmlspecialchars(trim(($_POST['prix']))));
+    } else {
+        $errors[] =  "veuillez rentrer une prix dans le champ qui va bien ;-P ";
+    }
+
+    
+
+    if (isset($_POST['disponible'])) {
+        $disponible = (int) $_POST['disponible'];
+    } else {
+        $errors[] =  "veuillez rentrer le disponible dans le champ qui va bien ;-P ";
+    }
+
+    if (!empty($_FILES['photo']["name"]) && isset($_FILES['photo']["name"])) {
+
+        $photo = $_FILES['photo']["name"];
+        $photo = upload_file($photo, '../../../images/', 'photo');
+
+    } else {
+        $photo = $article->getPhoto();
+    }
+
+    //pre_var_dump('update_article.php l 66', $photo );
+
+    if (empty($errors)) {
+
+        $articleModel->updateArticle($id, $titre, $description, $prix, $photo, $disponible);
+        header_location('get_article.php');
+    }
+    else{
+        pre_var_dump('update_article.php l 69', $errors);
+    }
+}
+
+// pre_var_dump($disponible, null, true);
+?>
+
+<!-- /* *******************************  RENDU  *********************************** */ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un Utilisateur</title>
+</head>
+
+<body>
+    <form method="post" enctype="multipart/form-data">
+
+        <div>
+            <label for="titre">Titre</label>
+            <input type="text" name="titre" value="<?= $article->getTitre() ?>">
+        </div>
+
+        <div>
+            <label for="description">Description</label>
+            <textarea name="description" id="" cols="30" rows="10"><?= $article->getDescription() ?></textarea>
+        </div>
+
+        <div>
+            <label for="prix">Prix</label>
+            <input type="text" name="prix" value="<?= $article->getPrix() ?>">
+        </div>
+
+         <div>
+             <label for="disponible">Disponible</label>
+            <select name="disponible">
+
+                <?php if ($article->getDisponible() == "0") : ?>
+
+                    <option value="0" selected >0</option>
+                    <option value="1">1</option>
+
+                <?php  else : ?>
+
+                    <option value="1" selected >1</option>
+                    <option value="0">0</option>
+
+                <?php  endif ?>
+
+            </select>
+        </div> 
+
+        <div>
+            <div>
+                <label for="photo">Photo <?= $article->getPhoto() ?></label>
+            </div>
+            <input type="file" name="photo" >
+        </div>
+
+
+        <div>
+            <input type="submit" value="Modifier" name="update">
+        </div>
+                    
+    </form>
+</body>
+
+</html>
