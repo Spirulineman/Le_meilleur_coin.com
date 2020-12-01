@@ -72,7 +72,7 @@ if (isset($_POST['update'])) {
     if (!empty($_POST['admin'])) {
         $user->setAdmin(intval($_POST['admin']));
     } else {
-        $errors[] =  "veuillez rentrer une valeur valide dans le champ qui va bien ;-P ";
+        $errors[] =  "veuillez rentrer une valeur valide dans le champ qui va bien ;-P "; 
     }
 
     if (empty($errors)) {
