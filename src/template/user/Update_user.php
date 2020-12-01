@@ -128,7 +128,7 @@ if (isset($_POST['update'])) {
         <div><input type="text" name="mail" value="<?= $user->getMail() ?>"></div>
         <div><input type="text" name="telephone" value="<?= $user->getTelephone() ?>"></div>
         <div><input type="submit" value="Modifier" name="update"></div>
-                    <?=var_dump($user);?>
+                    
     </form>
 </body>
 
