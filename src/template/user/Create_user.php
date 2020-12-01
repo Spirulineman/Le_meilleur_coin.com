@@ -68,13 +68,13 @@ if (isset($_POST['create'])) {
         $errors[] =  "veuillez rentrer un numéro de téléphone valide dans le champ qui va bien ;-P ";
     }
 
-    if (!empty($_POST['pwd'] && $_POST['Confirme_Password'])) {
+    if (!empty($_POST['pwd']) && !empty($_POST['Confirme_Password'])) {
 
         $pwd = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
         $pwdVerified = $_POST['Confirme_Password'];
-        if (password_verify($pwdVerified,$pwd )) {
+        if (password_verify($pwdVerified, $pwd)) {
             $user->setPwd($pwd);
-        }else{
+        } else {
 
             $errors[] = "Mot de passe non vérifié ...";
         }
@@ -87,7 +87,7 @@ if (isset($_POST['create'])) {
         $userModel->createUser($user);
     }
 
-    header ('Location: Create_user.php');
+    header('Location: Create_user.php');
     die;
 }
 
@@ -95,7 +95,9 @@ if (isset($_POST['create'])) {
 
 ?>
 
-<!-- /* *******************************  RENDU  *********************************** */ -->
+<!-- /* ************************************************************************** */
+     /*                                    RENDU                                   */
+     /* ************************************************************************** */ -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,11 +105,69 @@ if (isset($_POST['create'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier un Utilisateur</title>
+    <script src="../../lib/jquery-3.5.1.min.js"></script>
+    <script src="../../lib/jquery.validate.min.js"></script>
+    <script src="../../lib/messages_fr.js"></script>
+    <script>
+        $(function() {
+
+
+
+            $('#crea').validate({
+
+                rules: {
+                    nom: {
+                        minlength: 2,
+                        required: true
+                    },
+
+                    prenom: {
+
+                        minlength: 2,
+                        required: true
+                    },
+
+                    adresse: {
+
+                        minlength: 2,
+                        required: true
+                    },
+
+
+                    mail: {
+
+                        required: true,
+                        email: true
+                    },
+
+                    telephone: {
+                        required: true,
+                        minlength: 10,
+                        number: true
+
+                    },
+                    pwd: {
+                        required: true,
+                        minlength: 5,
+                    },
+                    Confirme_Password:{
+                        required:true,
+                        minlength:5,
+                        equalTo: '#pwd'
+                    }
+
+
+                }
+
+            });
+
+        });
+    </script>
+    <title>Créer un Utilisateur</title>
 </head>
 
 <body>
-    <form method="post">
+    <form method="post" id="crea">
 
         <div><input type="text" name="nom" placeholder="Nom"></div>
         <!--ne pas oublier de modifier le "name" ==>> valeur des champs de la table-->
@@ -115,8 +175,8 @@ if (isset($_POST['create'])) {
         <div><input type="text" name="adresse" placeholder="Adresse"></div>
         <div></div>
         <div><input type="text" name="mail" placeholder="Mail"></div>
-        <div><input type="text" name="telephone" placeholder="Téléphone"></div>
-        <div><input type="text" name="pwd" placeholder="Mot de Passe"></div>
+        <div><input type="number" name="telephone" placeholder="Téléphone"></div>
+        <div><input type="text" name="pwd" placeholder="Mot de Passe" id="pwd"></div>
         <div><input type="text" name="Confirme_Password" placeholder="Confirmation Mot de Passe"></div>
         <div><input type="submit" value="Créer" name="create"></div>
 
