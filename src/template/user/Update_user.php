@@ -69,6 +69,12 @@ if (isset($_POST['update'])) {
         $errors[] =  "veuillez rentrer un numéro de téléphone valide dans le champ qui va bien ;-P ";
     }
 
+    if (!empty($_POST['admin'])) {
+        $user->setAdmin(intval($_POST['admin']));
+    } else {
+        $errors[] =  "veuillez rentrer une valeur valide dans le champ qui va bien ;-P ";
+    }
+
     if (empty($errors)) {
 
         $userModel->updateUser($user);
@@ -127,8 +133,22 @@ if (isset($_POST['update'])) {
 
         <div><input type="text" name="mail" value="<?= $user->getMail() ?>"></div>
         <div><input type="text" name="telephone" value="<?= $user->getTelephone() ?>"></div>
+        <div><select name="admin"><?php
+                                    for ($i = 0; $i < count($status); $i++) {
+                                        if ($status[$i] == $user->getAdmin()) {
+                                    ?>
+                        <option value="<?= $status[$i] ?>" selected><?= $status[$i] ?></option>
+                    <?php
+                                        } else {
+                    ?>
+                        <option value="<?= $status[$i] ?>"><?= $status[$i] ?></option>
+                <?php
+                                        }
+                                    }
+                ?>
+            </select></div>
         <div><input type="submit" value="Modifier" name="update"></div>
-                    
+
     </form>
 </body>
 
