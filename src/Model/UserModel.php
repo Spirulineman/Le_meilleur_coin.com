@@ -26,5 +26,25 @@ class UserModel extends Model{
 
         return $user;
     }
+
+    public function updateUser($user){
+
+        $requete = "UPDATE user SET nom= :nom, prenom= :prenom, adresse= :adresse, admin= :admin, telephone= :telephone, active= :active, mail= :mail, pwd= :pwd WHERE id = :id";
+        $stmt=$this->Db_connect->prepare($requete);
+        return $stmt->execute(array(
+
+                ':id' => $user->getId(),
+                ':nom' => $user->getNom(),
+                ':prenom' =>  $user->getPrenom(),
+                ':adresse' =>  $user->getAdresse(),
+                ':admin' =>  $user->getAdmin(),
+                ':telephone' =>  $user->getTelephone(),
+                ':active' =>  $user->getActive(),
+                ':mail' =>  $user->getMail(),
+                ':pwd' =>  $user->getPwd(),            
+            )
+        );
+
+    }
     
 }

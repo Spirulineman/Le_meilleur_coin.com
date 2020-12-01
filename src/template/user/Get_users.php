@@ -40,7 +40,7 @@ $users = $userModel->selectAllUser();
             <th>Nom</th>
             <th>Prénom</th>
             <th>Adresse</th>
-            <th>Statut</th>
+            <th>Status</th>
             <th>mail</th>
             <th>Téléphone</th>
         </thead>

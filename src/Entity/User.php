@@ -12,6 +12,7 @@ class User {
     public $telephone;
     public $active;
     public $mail;
+    public $pwd;
 
     public function __construct()
     {
@@ -179,6 +180,26 @@ class User {
         return $this;
     }
     
+
+    /**
+     * Get the value of pwd
+     */ 
+    public function getPwd()
+    {
+        return $this->pwd;
+    }
+
+    /**
+     * Set the value of pwd
+     *
+     * @return  self
+     */ 
+    public function setPwd($pwd)
+    {
+        $this->pwd = $pwd;
+
+        return $this;
+    }
 }
 
 
