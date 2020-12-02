@@ -47,26 +47,40 @@ class UserModel extends Model{
 
     }
 
-    public function createUser($user){
+        public function createUser($user){
 
-        $requete= "INSERT INTO user (nom, prenom, adresse, telephone, mail, pwd) VALUES (:nom, :prenom, :adresse, :telephone, :mail, :pwd)";
-        $stmt=$this->Db_connect->prepare($requete);
-        $stmt->execute(array(
+            $requete= "INSERT INTO user (nom, prenom, adresse, telephone, mail, pwd) VALUES (:nom, :prenom, :adresse, :telephone, :mail, :pwd)";
+            $stmt=$this->Db_connect->prepare($requete);
+            $stmt->execute(array(
 
-            ':nom' => $user->getNom(),
-            ':prenom' =>  $user->getPrenom(),
-            ':adresse' =>  $user->getAdresse(),
-            //':admin' =>  $user->getAdmin(),
-            ':telephone' =>  $user->getTelephone(),
-            //':active' =>  $user->getActive(),
-            ':mail' =>  $user->getMail(),
-            ':pwd' =>  $user->getPwd(),
-        )
+                ':nom' => $user->getNom(),
+                ':prenom' =>  $user->getPrenom(),
+                ':adresse' =>  $user->getAdresse(),
+                //':admin' =>  $user->getAdmin(),
+                ':telephone' =>  $user->getTelephone(),
+                //':active' =>  $user->getActive(),
+                ':mail' =>  $user->getMail(),
+                ':pwd' =>  $user->getPwd(),
+            )
 
-    );
+        );
         var_dump($stmt);
     //return $stmt->$this->Db_connect->lastInsertId();
 
+
+    }
+
+    public function Connect($mail){
+
+        $requete= "SELECT * FROM user WHERE mail LIKE :mail";
+        $stmt=$this->Db_connect->prepare($requete);
+        $stmt->execute(array(
+            ':mail' => $mail,
+        )); // comme il y a de paramètres dans la fonction : on passe à l'execute ici
+        $stmt->setFetchMode(PDO::FETCH_CLASS, User::class);
+        $user = $stmt->fetch();
+
+        return $user;
 
     }
     
