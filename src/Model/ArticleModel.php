@@ -25,16 +25,15 @@ class ArticleModel extends Model{
         return $articles;
     }
 
-    public function updateArticle($id, $titre, $description /*,  $id_categorie */ , $prix, $photo, $disponible){
+    public function updateArticle($id, $titre, $description /*,  $id_categorie */ , $prix, $photo, $disponible, $id_user){
 
-        //pre_var_dump( $photo, 'ArticleModel.php l 30', true);
-        // id_categoie = :id_categorie, date_creation = :date_creation, 
         $requete = "UPDATE article 
             SET titre = :titre, 
                 description = :description, 
                 prix = :prix,  
                 photo = :photo,
-                disponible = :disponible
+                disponible = :disponible,
+                id_user = :id_user
             WHERE id = :id";
 
         $stmt = $this->Db_connect->prepare($requete);
@@ -44,7 +43,8 @@ class ArticleModel extends Model{
                 ':description' => $description,
                 ':prix' =>  $prix,
                 ':photo' =>  $photo,
-                ':disponible' => $disponible       
+                ':disponible' => $disponible,
+                ':id_user' => $id_user  
                 ]
             );
     }
@@ -52,7 +52,7 @@ class ArticleModel extends Model{
 
 
 
-    public function createArticle( $titre, $description /*, $id_categorie*/, $prix, /* $id_user,*/ $photo){
+    public function createArticle( $titre, $description /*, $id_categorie*/, $prix, $photo){
 
         $requete = "INSERT INTO article( titre, description, prix, photo) 
             VALUE (:titre, :description, :prix, :photo)";

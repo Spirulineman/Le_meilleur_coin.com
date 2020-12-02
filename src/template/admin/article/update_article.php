@@ -46,6 +46,12 @@ if (isset($_POST['update'])) {
         $errors[] =  "veuillez rentrer une prix dans le champ qui va bien ;-P ";
     }
 
+    if (!empty($_POST['id_user'])) {
+        $id_user = (int) $_POST['id_user'];
+    } else {
+        $errors[] =  "veuillez rentrer le user dans le champ qui va bien ;-P ";
+    }
+
     
 
     if (isset($_POST['disponible'])) {
@@ -67,7 +73,7 @@ if (isset($_POST['update'])) {
 
     if (empty($errors)) {
 
-        $articleModel->updateArticle($id, $titre, $description, $prix, $photo, $disponible);
+        $articleModel->updateArticle($id, $titre, $description, $prix, $photo, $disponible, $id_user);
         header_location('get_article.php');
     }
     else{
@@ -86,10 +92,11 @@ if (isset($_POST['update'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier un Utilisateur</title>
+    <title>Modifier un Article</title>
 </head>
 
 <body>
+    <h1> Modifier un Articles </h1>
     <form method="post" enctype="multipart/form-data">
 
         <div>
@@ -131,6 +138,10 @@ if (isset($_POST['update'])) {
                 <label for="photo">Photo <?= $article->getPhoto() ?></label>
             </div>
             <input type="file" name="photo" >
+        </div>
+
+        <div>
+            <input type="hidden" name="id_user" value="<?= $article->getId_user() ?>"> 
         </div>
 
 

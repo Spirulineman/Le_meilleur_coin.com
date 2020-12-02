@@ -75,10 +75,11 @@ if (isset($_POST['add'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier un Utilisateur</title>
+    <title>Creer un Article</title>
 </head>
 
 <body>
+    <h1> Creer des Articles </h1>
     <form method="post" enctype="multipart/form-data">
 
         <div>
