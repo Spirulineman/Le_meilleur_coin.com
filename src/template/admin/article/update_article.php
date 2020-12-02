@@ -77,7 +77,7 @@ if (isset($_POST['update'])) {
         header_location('get_article.php');
     }
     else{
-        pre_var_dump('update_article.php l 69', $errors);
+       // pre_var_dump('update_article.php l 69', $errors);
     }
 }
 
@@ -96,7 +96,7 @@ if (isset($_POST['update'])) {
 </head>
 
 <body>
-    <h1> Modifier un Articles </h1>
+    <h1> Modifier un Article </h1>
     <form method="post" enctype="multipart/form-data">
 
         <div>

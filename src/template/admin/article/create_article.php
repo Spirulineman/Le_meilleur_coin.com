@@ -45,11 +45,10 @@ if (isset($_POST['add'])) {
     }
 
 
-    if (isset($_FILES['photo']["name"]) && !empty($_FILES['photo']["name"])) {
-
+    if (isset($_FILES['photo']["name"]) && !empty($_FILES['photo']["name"])) { // on appelle dans $_FILES photo & name qui permettent de peupler le type et le nom dans le tableau associatif $_FILES 
+        //pre_var_dump($_FILES,NULL,true);
         $photo = $_FILES['photo']["name"];
         $photo = upload_file($photo, '../../../images/', 'photo');
-
     } else {
         $photo = null;
     }
@@ -59,9 +58,9 @@ if (isset($_POST['add'])) {
         $articleModel->createArticle($titre, $description, $prix, $photo);
         header_location('get_article.php');
     }
-    else{
+    /* else{
         pre_var_dump('create_article.php l 69', $errors);
-    }
+    } */
 }
 
 // pre_var_dump($disponible, null, true);
@@ -79,12 +78,12 @@ if (isset($_POST['add'])) {
 </head>
 
 <body>
-    <h1> Creer des Articles </h1>
+    <h1> Créer des Articles </h1>
     <form method="post" enctype="multipart/form-data">
 
         <div>
             <label for="titre">Titre</label>
-            <input type="text" name="titre" >
+            <input type="text" name="titre">
         </div>
 
         <div>
@@ -101,15 +100,16 @@ if (isset($_POST['add'])) {
             <div>
                 <label for="photo">Photo </label>
             </div>
-            <input type="file" name="photo" >
+            <input type="file" name="photo">
         </div>
 
 
         <div>
             <input type="submit" value="Ajouter" name="add">
         </div>
-                    
+
     </form>
+    <a href="../../../index.php">Retour à l'Accueil</a>
 </body>
 
 </html>

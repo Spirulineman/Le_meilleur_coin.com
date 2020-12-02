@@ -1,41 +1,23 @@
 <?php
+
+session_start();
 /* ************************************************************************** */
 /*                                 CONNEXION BDD                              */
 /* ************************************************************************** */
 
-require_once "config/class-singleton.php";
+require_once "../../../config/class-singleton.php";
 
 /* ************************************ . *********************************** */
 
-require_once "Model/UserModel.php";
-require_once "Entity/User.php";
-require_once "inc/outils__perso__jonas__.php";
+require_once "../../../Model/ArticleModel.php";
+require_once "../../../Entity/Article.php";
 
-require_once "Model/ArticleModel.php";
-require_once "Entity/Article.php";
 /* ************************************************************************** */
-
-
-session_start();
-if (isset($_SESSION['userconnecte'])) {
-
-
-    $user = new User();
-    $user = ($_SESSION['userconnecte']);
-    //var_dump($user);
-}
-if (isset($_POST['deco'])) {
-    unset($_SESSION);
-    session_destroy();
-}
-//}
-//pre_var_dump($_SESSION, NULL, true);
 
 $articleModel = new ArticleModel();
 $articles = $articleModel->selectAllArticle();
-       // pre_var_dump($_SESSION['userconnecte']);
-?>
 
+?>
 
 <!-- /* *******************************  RENDU  *********************************** */ -->
 
@@ -45,17 +27,16 @@ $articles = $articleModel->selectAllArticle();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Liste des Articles</title>
 </head>
 
 <body>
+    <a href="create_article.php">Ajouter un article</a>
     <div>
-        <h1> Gestion des Articles </h1><br>
+        <h1> Gestion des Articles </h1>
         <h3>Liste des Articles</h3>
     </div>
-
     <table>
-
         <thead>
             <tr>
                 <th>Titre</th>
@@ -81,43 +62,14 @@ $articles = $articleModel->selectAllArticle();
                             Indisponible
                         <?php endif ?>
                     </td>
-                    <?php
-                    
-                        if(isset($_SESSION) ){
-                            if
-                        ($articles[$i]->getId_user() == $user->getId()){
-                               
-                            ?>
-                            <td><a href="update_article.php?id=<?= $articles[$i]->getId() ?>">Modifier</a></td>
-                    <td><a href="delete_article.php?id=<?= $articles[$i]->getId() ?>">supprimer</a></td>
-
-                        <?php
-                        }
-                        }
-                    ?>
-                    
+                    <td><a href="update_article.php?id=<?= $articles[$i]->getId() ?>">Modifier</a></td>
+                    <td><a href="delete_article.php?id=<?= $articles[$i]->getId() ?>">suprimer</a></td>
                 </tr>
             <?php endfor ?>
         </tbody>
 
     </table>
-
-       
-    <!-- <a href="../../../index.php">Retour à l'Accueil</a> -->
-
-
-    <div>
-        <?php
-        if (!empty($_SESSION['userconnecte'])) {
-        ?>
-            <form method="post">
-                <input type="submit" value="déconnexion" id="deco" name="deco">
-            </form>
-        <?php
-        }
-        ?>
-        <a href="template/user/User_connect.php">Se connecter</a>
-    </div>
+    <a href="../../../index.php">Retour à l'Accueil</a>
 </body>
 
 </html>

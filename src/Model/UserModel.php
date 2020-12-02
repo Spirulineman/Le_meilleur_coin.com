@@ -72,10 +72,11 @@ class UserModel extends Model{
 
     public function Connect($mail){
 
-        $requete= "SELECT * FROM user WHERE mail LIKE :mail";
+        $requete= "SELECT * FROM user WHERE mail LIKE :mail AND active= :active";
         $stmt=$this->Db_connect->prepare($requete);
         $stmt->execute(array(
             ':mail' => $mail,
+            ':active' => 1,
         )); // comme il y a de paramètres dans la fonction : on passe à l'execute ici
         $stmt->setFetchMode(PDO::FETCH_CLASS, User::class);
         $user = $stmt->fetch();

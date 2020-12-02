@@ -78,7 +78,7 @@ function upload_file($filename, $url, $name_input){
             $good_img = $date . $change . $file_ext;
             
             move_uploaded_file($_FILES[$name_input]["tmp_name"], "{$url}" . $good_img );
-            echo "success le fichier a été renomé et ajouter car il existe déjà dans ce dossier.";
+            echo "success le fichier a été renommé et ajouter car il existe déjà dans ce dossier.";
         }
         else
         {		

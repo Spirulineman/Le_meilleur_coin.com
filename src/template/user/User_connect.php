@@ -46,22 +46,27 @@ if (isset($_POST["connecter"])) {
     if (empty($errors)) {
 
         $user = $userModel->Connect($mail);
-            //var_dump($user);
+        //var_dump($user);
 
-        if ($user->getId() != 0) {
+        if (!empty($user)) {
 
             if (password_verify($pwd, $user->getPwd())) {
-
-               $_SESSION['userconnecte']=$user;
-                header('Location: ../../index.php');
-                die;
+                if ($user->getAdmin() == 0) {
+                    $_SESSION['userconnecte'] = $user;
+                    header('Location: ../../index.php');
+                    die;
+                } else {
+                    $_SESSION['userconnecte'] = $user;
+                    header('Location: ../admin/article/get_article.php');
+                    die;
+                }
             } else {
 
                 $errors[] =  "Votre compte n'existe pas ou vos logins ne sont pas corrects ;-P ";
             }
         } else {
 
-            $errors[] =  "Votre compte n'existe pas ou vos logins ne sont pas corrects ;-P ";
+            $errors[] =  "Votre compte n'existe pas ou vos logins ne sont pas corrects ou votre compte n'est pas actif ;-P ";
         }
     }
 }
@@ -70,6 +75,9 @@ if (isset($_POST["connecter"])) {
 /* ************************************************************************** */
 /*                                    RENDU                                   */
 /* ************************************************************************** */
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +105,7 @@ if (isset($_POST["connecter"])) {
                         required: true,
                         minlength: 5,
                     },
-                    
+
                 }
 
             });
@@ -131,6 +139,8 @@ if (isset($_POST["connecter"])) {
         <input type="submit" value="Se connecter" name="connecter">
 
     </form>
+    
+    <a href="../../index.php">Retour à l'Accueil</a>
 </body>
 
 </html>

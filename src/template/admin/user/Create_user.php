@@ -5,13 +5,13 @@ session_start();
 /*                                 CONNEXION BDD                              */
 /* ************************************************************************** */
 
-require_once "../../config/class-singleton.php";
+require_once "../../../config/class-singleton.php";
 
 /* ************************************ . *********************************** */
 
-require_once "../../Model/UserModel.php";
-require_once "../../Entity/User.php";
-require_once "../../inc/outils__perso__jonas__.php";
+require_once "../../../Model/UserModel.php";
+require_once "../../../Entity/User.php";
+require_once "../../../inc/outils__perso__jonas__.php";
 
 /* ************************************************************************** */
 

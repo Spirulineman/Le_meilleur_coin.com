@@ -6,13 +6,13 @@ session_start();
 /*                                 CONNEXION BDD                              */
 /* ************************************************************************** */
 
-require_once "../../config/class-singleton.php";
+require_once "../../../config/class-singleton.php";
 
 /* ************************************ . *********************************** */
 
-require_once "../../Model/UserModel.php";
-require_once "../../Entity/User.php";
-require_once "../../inc/outils__perso__jonas__.php";
+require_once "../../../Model/UserModel.php";
+require_once "../../../Entity/User.php";
+require_once "../../../inc/outils__perso__jonas__.php";
 
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ if (isset($_POST['update'])) {
         $errors[] =  "veuillez rentrer une adresse dans le champ qui va bien ;-P ";
     }
 
-    if (!empty($_POST['status'])) {
+    if (isset($_POST['status'])) { // mettre isset plutot que !empty !!!!! 
         $user->setActive(strip_tags(htmlspecialchars(trim(intval($_POST['status'])))));
     } else {
         $errors[] =  "veuillez rentrer le statut dans le champ qui va bien ;-P ";
@@ -76,25 +76,28 @@ if (isset($_POST['update'])) {
         $errors[] =  "veuillez rentrer un numéro de téléphone valide dans le champ qui va bien ;-P ";
     }
 
-    if (!empty($_POST['admin'])) {
+    if (isset($_POST['admin'])) { // mettre isset plutot que !empty !!!!! 
         $user->setAdmin(intval($_POST['admin']));
     } else {
-        $errors[] =  "veuillez rentrer une valeur valide dans le champ qui va bien ;-P ";
+        $errors[] =  "veuillez choisir une valeur valide dans le champ qui va bien ;-P ";
     }
-    /* ************************************************************************** */
+
+    /* ********************************|  PWD  Verify  |****************************************** */
 
     if (!empty($_POST['pwd']) && !empty($_POST['pwd_2'])) {
 
         $pwd = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
+        echo "1";
         $pwdVerified = $_POST['pwd_2'];
         if (password_verify($pwdVerified, $pwd)) {
+            echo "2";
             $user->setPwd($pwd);
         } else {
 
             $errors[] = "Mot de passe non vérifié ...";
         }
     }
-    /* ************************************************************************** */
+    /* ******************************| FIN  PWD  Verify  |**************************************** */
 
     if (empty($errors)) {
 
@@ -117,6 +120,11 @@ if (isset($_POST['update'])) {
     <script src="../../lib/jquery-3.5.1.min.js"></script>
     <script src="../../lib/jquery.validate.min.js"></script>
     <script src="../../lib/messages_fr.js"></script>
+    <!-- 
+/* ************************************************************************** */
+/*                                 JQVALIDATE                                 */
+/* ************************************************************************** */ -->
+
     <script>
         $(function() {
 
@@ -168,11 +176,11 @@ if (isset($_POST['update'])) {
 
                     },
                     pwd: {
-                       
+
                         minlength: 5
                     },
                     pwd_2: {
-                       
+
                         minlength: 5,
                         equalTo: '#pwd'
                     }
@@ -183,11 +191,32 @@ if (isset($_POST['update'])) {
 
         });
     </script>
-
+    <!-- 
+/* ************************************************************************** */
+/*                               FIN  JQVALIDATE                                 */
+/* ************************************************************************** */ -->
     <title>Modifier un Utilisateur</title>
 </head>
 
 <body>
+
+    <?php if (!empty($errors)) {
+    ?>
+        <ul>
+
+            <?php
+
+
+            for ($i = 0; $i < count($errors); $i++) {
+            ?>
+                <li><?= $errors[$i] ?></li>
+            <?php
+            }
+            ?>
+        </ul>
+    <?php
+    }
+    ?>
     <form method="post" id="form">
 
         <div><input type="text" name="nom" value="<?= $user->getNom() ?>"></div>
@@ -225,15 +254,19 @@ if (isset($_POST['update'])) {
                                     }
                 ?>
             </select></div>
+        <!-- ----------------          Changer Mot de Passe ------------------  -->
+
         <input type="button" value="Changer mot de passe" id="modif_pwd">
         <div id="motdepasse">
             <input type="password" name="pwd" id="pwd" placeholder="Mot de passe">
             <input type="password" name="pwd_2" id="pwd_2" placeholder="Confirmez votre MDP">
         </div>
+        <!-- ----------------       FIN   Changer Mot de Passe  --------------- -->
 
         <div><input type="submit" value="Modifier" name="update"></div>
 
     </form>
+    <a href="../../../index.php">Retour à l'Accueil</a>
 </body>
 
 
