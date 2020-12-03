@@ -29,7 +29,7 @@ if(!empty($_GET['id_article_panier'])){
 }
 $articles_panier = $articleModel->selectArticlePanier($_SESSION['panier']);
 //$_SESSION['panier']= array();
-var_dump(implode(',',$_SESSION['panier']));
+//var_dump(implode(',',$_SESSION['panier']));
 if (isset($_SESSION['userconnecte'])) {
 
 

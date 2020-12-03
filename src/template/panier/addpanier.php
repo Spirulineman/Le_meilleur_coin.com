@@ -12,7 +12,7 @@
       //$cle = array_search($_GET['del'],$_SESSION["panier"]);
       //echo $cle;
     }
-    var_dump($_SESSION['panier']);
+    //var_dump($_SESSION['panier']);
     $id_article =0;
     //var_dump($_GET);
     if(!empty($_GET['id_article_panier'])){

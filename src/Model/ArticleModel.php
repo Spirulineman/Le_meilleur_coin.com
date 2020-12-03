@@ -52,10 +52,10 @@ class ArticleModel extends Model{
 
 
 
-    public function createArticle( $titre, $description /*, $id_categorie*/, $prix, $photo){
+    public function createArticle( $titre, $description /*, $id_categorie*/, $prix, $photo, $id_user){
 
-        $requete = "INSERT INTO article( titre, description, prix, photo) 
-            VALUE (:titre, :description, :prix, :photo)";
+        $requete = "INSERT INTO article( titre, description, prix, photo, id_user) 
+            VALUE (:titre, :description, :prix, :photo, :id_user)";
         
 
         $stmt = $this->Db_connect->prepare($requete);
@@ -64,7 +64,8 @@ class ArticleModel extends Model{
                 ':titre' => $titre,
                 ':description' => $description,
                 ':prix' =>  $prix,
-                ':photo' =>  $photo        
+                ':photo' =>  $photo,
+                ':id_user' =>  $id_user        
             ]
         );
     }
