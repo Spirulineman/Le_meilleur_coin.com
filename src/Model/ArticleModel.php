@@ -75,4 +75,14 @@ class ArticleModel extends Model{
         $stmt = $this->Db_connect->prepare($requete);
         $stmt->execute([ ':id' => $id ]);
     }
+
+    public function selectArticlePanier($ids_articles){
+        $requete = 'SELECT * FROM article WHERE id IN ('.implode(',',$ids_articles).')';
+        $stmt = $this->Db_connect->prepare($requete);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Article::class);
+        $stmt->execute(); 
+        $articles = $stmt->fetchAll();
+
+        return $articles; 
+    }
 }
