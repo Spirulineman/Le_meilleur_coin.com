@@ -5,7 +5,7 @@ class ArticleModel extends Model{
 
     public function selectAllArticle(){
 
-        $requete = "SELECT * FROM article";
+        $requete = "SELECT * FROM article WHERE disponible= 1";
         $stmt= $this->Db_connect->prepare($requete);
         $stmt->setFetchMode(PDO::FETCH_CLASS, Article::class);
         $stmt->execute(); 
@@ -72,7 +72,7 @@ class ArticleModel extends Model{
 
     public function DeleteArticle($id)
     {
-        $requete = "DELETE FROM `article` WHERE id = :id";
+        $requete = "DELETE FROM article WHERE id = :id";
         $stmt = $this->Db_connect->prepare($requete);
         $stmt->execute([ ':id' => $id ]);
     }
@@ -86,4 +86,26 @@ class ArticleModel extends Model{
 
         return $articles; 
     }
+
+    public function finCommande($id_user,$id_article){
+
+            $requete= "INSERT INTO commande(id_user, id_article) VALUES (:id_user,:id_article)";
+            $stmt = $this->Db_connect->prepare($requete);
+            return $stmt->execute([
+                
+                ':id_user' => $id_user,
+                ':id_article' => $id_article
+                
+                ]);
+
+    }
+
+    public function desactiveArticles_Vendus($id_article){
+
+        $requete= "UPDATE article SET disponible= 0 WHERE id = :id ";
+        $stmt = $this->Db_connect->prepare($requete);
+        return $stmt->execute([':id' => $id_article]);
+    }
+
+
 }
