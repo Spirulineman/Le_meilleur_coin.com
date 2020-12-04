@@ -130,7 +130,7 @@ $articles = $articleModel->selectAllArticle();
         <div><label>Description : </label><span><?= $articles[$i]->getDescription() ?></span></div> 
         <div><label>Date de création : </label><span><?= $articles[$i]->getDate_creation()->format('d/m/Y') ?></span></div> 
         <div><label>Prix € : </label><span><?= $articles[$i]->getPrix() ?>€</span></div> 
-        <div><label>Nom de photo : </label><span><?= $articles[$i]->getPhoto() ?></span></div> 
+        <div><label>Nom de photo : </label><span><?= $articles[$i]->getPhoto() ?><img src="images/<?= $articles[$i]->getPhoto() ?>" /></span></div> 
         <div>
             <label>Disponibilité :</label>
             <span>
@@ -177,9 +177,10 @@ $articles = $articleModel->selectAllArticle();
                 <input type="submit" value="déconnexion" id="deco" name="deco">
             </form>
         <?php
-        }
+        }else{
         ?>
         <a href="template/user/User_connect.php">Se connecter</a>
+        <?php }?>
     </div>
 </body>
 
