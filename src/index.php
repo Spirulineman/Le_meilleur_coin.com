@@ -59,9 +59,14 @@ $articles = $articleModel->selectAllArticle();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="template/panier/panier.js" async></script>
     <title>Index</title>
+
+    <!-- /* ******************************** LESSTOCSS ******************************* */ -->
+
+    <link rel="lib/LessToCss/stylesheet/less" type="text/css" href="test.less" />
+    <script src="JsDelivr.js"></script>
 </head>
+<!-- *****************************************************************    -->
 
 <body>
     <div>
@@ -75,14 +80,14 @@ $articles = $articleModel->selectAllArticle();
             <div><?= "|**************************************************************************************************|" ?></div>
             <div><?= "|-------------------------------------- =!=>>| Votre commande à bien été validée |<<=!= -----------------------------------------------|" ?></div>
             <div><?= "|**************************************************************************************************|" ?></div>
-            <?php
+        <?php
         }
-            ?>
-            <br>
+        ?>
+        <br>
     </div>
     <table>
 
-        <thead>
+        <thead id="thead_table">
             <tr>
                 <th>Titre</th>
                 <th>Description</th>

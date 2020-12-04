@@ -92,11 +92,15 @@ class UserModel extends Model{
 
     }
 
+    
+
 }
 
-//select count(article.id) from article where disponible = 1 and id_user = 7 ==>> annonces en cours
+// select count(a1.id) as annonces_encours, count(a2.id) as annonces_termine from article as a1 , article as a2 where a1.id_user = a2.id_user and a1.disponible = 1 and a2.disponible = 0 and a1.id_user = 1 ==>> annonces en cours
+
 //select count(article.id) from article where disponible =0 and id_user = 7 ==>> annonces terminées
-//select sum(a.prix) as ca , c.date_commande from article a , commande c where a.id = c.id_article and a.disponible = 0 and a.id_user = 7   ==>>  CA
+
+//select sum(a.prix)as ca from article a inner join commande c on c.id_article = a.id and  a.id_user != c.id_user and a.disponible=0 and a.id_user = 7  where c.date_commande < NOW() AND c.date_commande > DATE_ADD(NOW(), INTERVAL -30 DAY)   ==>>  CA
 
 //select sum(article.prix), commande.date_commande from article inner join commande on article.id = commande.id_article where article.id_user = 3 and commande.date_commande between now() and DATE_ADD(now(),INTERVAL - 30 DAY)
 
