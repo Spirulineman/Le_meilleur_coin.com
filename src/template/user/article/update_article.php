@@ -54,7 +54,7 @@ if (isset($_POST['update'])) {
         $errors[] =  "veuillez rentrer le user dans le champ qui va bien ;-P ";
     }
 
-    
+
 
     if (isset($_POST['disponible'])) {
         $disponible = (int) $_POST['disponible'];
@@ -66,7 +66,6 @@ if (isset($_POST['update'])) {
 
         $photo = $_FILES['photo']["name"];
         $photo = upload_file($photo, '../../../images/', 'photo');
-
     } else {
         $photo = $article->getPhoto();
     }
@@ -76,10 +75,9 @@ if (isset($_POST['update'])) {
     if (empty($errors)) {
 
         $articleModel->updateArticle($id, $titre, $description, $prix, $photo, $disponible, $id_user);
-        header_location('get_article.php');
-    }
-    else{
-       // pre_var_dump('update_article.php l 69', $errors);
+        header_location('../../../index.php');
+    } else {
+        // pre_var_dump('update_article.php l 69', $errors);
     }
 }
 
@@ -116,41 +114,41 @@ pre_var_dump($article);
             <input type="text" name="prix" value="<?= $article->getPrix() ?>">
         </div>
 
-         <div>
-             <label for="disponible">Disponible</label>
+        <div>
+            <label for="disponible">Disponible</label>
             <select name="disponible">
 
                 <?php if ($article->getDisponible() == "0") : ?>
 
-                    <option value="0" selected >0</option>
+                    <option value="0" selected>0</option>
                     <option value="1">1</option>
 
-                <?php  else : ?>
+                <?php else : ?>
 
-                    <option value="1" selected >1</option>
+                    <option value="1" selected>1</option>
                     <option value="0">0</option>
 
-                <?php  endif ?>
+                <?php endif ?>
 
             </select>
-        </div> 
+        </div>
 
         <div>
             <div>
                 <label for="photo">Photo <?= $article->getPhoto() ?></label>
             </div>
-            <input type="file" name="photo" >
+            <input type="file" name="photo">
         </div>
 
         <div>
-            <input type="hidden" name="id_user" value="<?= $article->getId_user() ?>"> 
+            <input type="hidden" name="id_user" value="<?= $article->getId_user() ?>">
         </div>
 
 
         <div>
             <input type="submit" value="Modifier" name="update">
         </div>
-                    
+
     </form>
 </body>
 
