@@ -89,7 +89,7 @@ if (isset($_POST['create'])) {
         $userModel->createUser($user);
     }
 
-    header('Location: Create_user.php');
+    header('Location: GEt_users.php');
     die;
 }
 

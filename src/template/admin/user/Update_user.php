@@ -101,7 +101,10 @@ if (isset($_POST['update'])) {
 
     if (empty($errors)) {
 
-        $userModel->updateUser($user);
+        if($userModel->updateUser($user)){
+            header("Location: Get_users.php");
+            die;
+        };
     }
 }
 

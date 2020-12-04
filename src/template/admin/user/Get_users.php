@@ -74,7 +74,8 @@ $users = $userModel->selectAllUser();
         </tbody>
 
     </table>
-    <a href="../../../index.php">Retour à l'Accueil</a>
+    <a href="../article/get_article.php">Retour à l'Accueil</a>
+    <a href="create_user.php">Créate un utilisateur</a>
 </body>
 
 </html>

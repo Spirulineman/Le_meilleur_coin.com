@@ -11,8 +11,14 @@ require_once "../../../config/class-singleton.php";
 require_once "../../../Model/ArticleModel.php";
 require_once "../../../Entity/Article.php";
 require_once "../../../outil/outil.php";
+require_once "../../../Entity/User.php";
 
 /* ************************************************************************** */
+session_start();
+
+
+
+$user= new User();
 
 $errors  = array();
 $id = 0;
@@ -20,6 +26,11 @@ $id = 0;
 if (isset($_GET['id'])) {
 
     $id = intval($_GET['id']);
+}
+
+if(isset($_SESSION['userconnecte'])){
+
+    $user = $_SESSION['userconnecte'];
 }
 
 $articleModel = new ArticleModel();
@@ -55,7 +66,7 @@ if (isset($_POST['add'])) {
 
     if (empty($errors)) {
 
-        $articleModel->createArticle($titre, $description, $prix, $photo);
+        $articleModel->createArticle($titre, $description, $prix, $photo, $user->getId());
         header_location('get_article.php');
     }
     /* else{
@@ -63,7 +74,7 @@ if (isset($_POST['add'])) {
     } */
 }
 
-// pre_var_dump($disponible, null, true);
+pre_var_dump($user);
 ?>
 
 <!-- /* *******************************  RENDU  *********************************** */ -->
@@ -103,6 +114,9 @@ if (isset($_POST['add'])) {
             <input type="file" name="photo">
         </div>
 
+        <div>
+            <input type="hidden" name="id_user" value="<?= $user->getId() ?>">
+        </div>
 
         <div>
             <input type="submit" value="Ajouter" name="add">

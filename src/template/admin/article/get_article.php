@@ -69,6 +69,7 @@ $articles = $articleModel->selectAllArticle();
         </tbody>
 
     </table>
+    <a href="../user/Get_users.php">Gestion des utilisateur</a>
 </body>
 
 </html>
