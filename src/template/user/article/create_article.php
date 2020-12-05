@@ -67,14 +67,14 @@ if (isset($_POST['add'])) {
     if (empty($errors)) {
 
         $articleModel->createArticle($titre, $description, $prix, $photo, $user->getId());
-        header_location('../../../index.php');
+        header_location('get_all_article.php');
     }
     /* else{
         pre_var_dump('create_article.php l 69', $errors);
     } */
 }
 
-pre_var_dump($_SESSION);
+pre_var_dump($user);
 ?>
 
 <!-- /* *******************************  RENDU  *********************************** */ -->

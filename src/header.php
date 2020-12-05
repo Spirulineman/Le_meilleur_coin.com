@@ -25,6 +25,9 @@
                 <li><a href="../../user/article/get_all_article.php">Accueil</a></li>
                 <li><a href="../../user/panier/addpanier.php">panier</a></li>
                 <li><a href="../../user/article/get_all_article.php?deco=1">Déconnexion</a></li>
+                <li><a href="../../user/User_connect.php">Connexion</a></li>
+                <li><a href="../../user/article/create_article.php">Créer Article </a></li>
+                
             </ul>
         </nav>
 

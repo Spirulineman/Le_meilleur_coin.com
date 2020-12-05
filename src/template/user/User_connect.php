@@ -46,14 +46,17 @@ if (isset($_POST["connecter"])) {
     if (empty($errors)) {
 
         $user = $userModel->Connect($mail);
-        //var_dump($user);
+        
+        
 
         if (!empty($user)) {
-
             if (password_verify($pwd, $user->getPwd())) {
+
                 if ($user->getAdmin() == 0) {
+
+                    // pre_var_dump($_SESSION,null,true);
                     $_SESSION['userconnecte'] = $user;
-                    header('Location: ../../index.php');
+                    header('Location: article/get_all_article.php');
                     die;
                 } else {
                     $_SESSION['userconnecte'] = $user;

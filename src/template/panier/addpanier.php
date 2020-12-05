@@ -46,8 +46,8 @@ if (!empty($_GET['id_article_panier'])) {
     //var_dump($_SESSION['panier']);
 }
 
+//pre_var_dump($_SESSION['panier'],null,true);
 if(isset($_POST['commande'])){
-    var_dump($_SESSION['panier']);
     if(!empty($_SESSION['panier'])){
 
         for ($i = 0; $i < count($_SESSION['panier']); $i++) {
