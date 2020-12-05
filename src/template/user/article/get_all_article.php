@@ -91,7 +91,7 @@ $articles = $articleModel->selectAllArticle();
         ?>
         <br>
     </div>
-    <table>
+    <table class="table">
 
         <thead id="thead_table">
             <tr>
@@ -155,7 +155,10 @@ $articles = $articleModel->selectAllArticle();
     <div>
 
         <?php for ($i = 0; $i < count($articles); $i++) : ?>
-            <div>
+            <div class="article">
+                <?php if($articles[$i]->getTitre() != null): ?>
+                    <img src="../../../images/<?= $articles[$i]->getPhoto() ?>" alt="" srcset="">
+                <?php endif ?>
                 <div><label>Titre : </label><span><?= $articles[$i]->getTitre() ?></span></div>
                 <div><label>Description : </label><span><?= $articles[$i]->getDescription() ?></span></div>
                 <div><label>Date de création : </label><span><?= $articles[$i]->getDate_creation()->format('d/m/Y') ?></span></div>

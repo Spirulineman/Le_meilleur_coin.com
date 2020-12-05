@@ -1,0 +1,68 @@
+/* / -------------------- navbar ------------------------- / */
+nav{
+    background-color: rgb(133, 127, 127);
+    height: 50px;
+    
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+nav ul li {
+    list-style-type: none; 
+    margin: inherit;
+    
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* / -------------------- table ------------------------- / */
+
+
+.table{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.table td, .table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:#ddd;
+}
+
+
+
+/* / -------------------- article ------------------------- / */
+
+.article{
+    width: 31%;
+    display: inline-block;
+    margin: 10px ;
+}
+
+img{
+    width: 100%;
+}
