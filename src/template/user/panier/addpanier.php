@@ -1,14 +1,14 @@
 <?php
 /* ************************************************************************** */
 
-require_once "../../config/class-singleton.php";
+require_once "../../../config/class-singleton.php";
 require_once 'panier.php';
-require_once '../../Model/ArticleModel.php';
-require_once '../../Entity/Article.php';
+require_once '../../../Model/ArticleModel.php';
+require_once '../../../Entity/Article.php';
 
-require_once "../../Entity/User.php";
+require_once "../../../Entity/User.php";
 
-require_once "../../outil/outil.php";
+require_once "../../../outil/outil.php";
 
 /* ************************************************************************** */
 
@@ -71,14 +71,12 @@ if(isset($_POST['commande'])){
             $_SESSION['panier'] = array();
         }
 
-        header('Location: ../../index.php?success=true');
+        header('Location: ../../../index.php?success=true');
         die;
     }
 
     
 }
-
-
 
 $articles = $articleModel->selectArticlePanier($_SESSION['panier']);
 ?>
@@ -110,7 +108,7 @@ $articles = $articleModel->selectArticlePanier($_SESSION['panier']);
 </table>
 
 <label>Prix Total : </label><span><?php echo $total ?>€</span>
-<a href="../../index.php">Retour </a>
+<a href="../../../index.php">Retour </a>
 
 <br>
 <form method="post" id="commande">
@@ -118,4 +116,4 @@ $articles = $articleModel->selectArticlePanier($_SESSION['panier']);
 </form>
 
 <?php $content = ob_get_clean(); ?>
-<?php require_once '../../view_template.php'; ?>
+<?php require_once '../../../view_template.php'; ?>
