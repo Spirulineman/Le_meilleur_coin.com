@@ -74,19 +74,21 @@ if (isset($_POST['add'])) {
     } */
 }
 
-pre_var_dump($user);
+// pre_var_dump($user);
 ?>
 
 <!-- /* *******************************  RENDU  *********************************** */ -->
 
-<!DOCTYPE html>
+<!-- demarre une tamporisation de sortie -->
+<?php ob_start(); ?>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creer un Article</title>
-</head>
+</head> -->
 
 <body>
     <h1> Créer des Articles </h1>
@@ -127,3 +129,7 @@ pre_var_dump($user);
 </body>
 
 </html>
+
+<!-- fermer la tamporisation de sortie et le mettre dans une variable -->
+<?php $content = ob_get_clean(); ?>
+<?php require_once '../../../view_template.php'; ?>

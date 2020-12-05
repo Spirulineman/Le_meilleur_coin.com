@@ -12,7 +12,7 @@ require_once "../../../config/class-singleton.php";
 
 require_once "../../../Model/UserModel.php";
 require_once "../../../Entity/User.php";
-require_once "../../../inc/outils__perso__jonas__.php";
+// require_once "../../../inc/outils__perso__jonas__.php";
 
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ if (isset($_GET['id'])) {
 $userModel = new UserModel();
 $user = $userModel->selectUserId($id);
 
-//var_dump($user);
+// var_dump($user);
 
 if (isset($_POST['update'])) {
 
@@ -113,6 +113,9 @@ if (isset($_POST['update'])) {
 <!-- /* ************************************************************************** */
      /*                                    RENDU                                   */
      /* ************************************************************************** */ -->
+
+     <!-- demarre une tamporisation de sortie -->
+<?php ob_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -203,6 +206,8 @@ if (isset($_POST['update'])) {
 
 <body>
 
+        <h1>Modifier un utilisateur</h1>
+
     <?php if (!empty($errors)) {
     ?>
         <ul>
@@ -222,28 +227,55 @@ if (isset($_POST['update'])) {
     ?>
     <form method="post" id="form">
 
-        <div><input type="text" name="nom" value="<?= $user->getNom() ?>"></div>
+        <div>
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" value="<?= $user->getNom() ?>">
+        </div>
         <!--ne pas oublier de modifier le "name" ==>> valeur des champs de la table-->
-        <div><input type="text" name="prenom" value="<?= $user->getPrenom() ?>"></div>
-        <div><input type="text" name="adresse" value="<?= $user->getAdresse() ?>"></div>
-        <div><select name="status"><?php
-                                    for ($i = 0; $i < count($status); $i++) {
-                                        if ($status[$i] == $user->getActive()) {
-                                    ?>
-                        <option value="<?= $status[$i] ?>" selected><?= $status[$i] ?></option>
-                    <?php
-                                        } else {
-                    ?>
-                        <option value="<?= $status[$i] ?>"><?= $status[$i] ?></option>
-                <?php
-                                        }
-                                    }
-                ?>
-            </select></div>
+        <div>
+            <label for="prenom">Prenom</label>
+            <input type="text" name="prenom" value="<?= $user->getPrenom() ?>">
+        
+        </div>
+        <div>
+            <label for="adresse">Adresse</label>
+            <input type="text" name="adresse" value="<?= $user->getAdresse() ?>"> 
+        </div>
 
-        <div><input type="text" name="mail" value="<?= $user->getMail() ?>"></div>
-        <div><input type="number" name="telephone" value="<?= $user->getTelephone() ?>"></div>
-        <div><select name="admin"><?php
+        <div>
+            <label for="status">Status</label>
+            <select name="status">
+                <?php
+                    for ($i = 0; $i < count($status); $i++) {
+                        if ($status[$i] == $user->getActive()) {
+                ?>
+
+                    <option value="<?= $status[$i] ?>" selected><?= $status[$i] ?></option>
+
+                <?php  } else { ?>
+
+                    <option value="<?= $status[$i] ?>"><?= $status[$i] ?></option>
+                <?php
+                        }
+                    }
+                ?>
+            </select>
+        </div>
+
+        <div>
+            <label for="mail">mail</label>
+            <input type="text" name="mail" value="<?= $user->getMail() ?>">
+        </div>
+
+        <div>
+            <label for="Telephone">Telephone</label>
+            <input type="number" name="telephone" value="<?= $user->getTelephone() ?>">
+        </div>
+
+        <div>
+            <label for="admin">Admin</label>
+            <select name="admin">
+                <?php
                                     for ($i = 0; $i < count($status); $i++) {
                                         if ($status[$i] == $user->getAdmin()) {
                                     ?>
@@ -256,7 +288,9 @@ if (isset($_POST['update'])) {
                                         }
                                     }
                 ?>
-            </select></div>
+            </select>
+        </div>
+
         <!-- ----------------          Changer Mot de Passe ------------------  -->
 
         <input type="button" value="Changer mot de passe" id="modif_pwd">
@@ -270,6 +304,12 @@ if (isset($_POST['update'])) {
 
     </form>
     <a href="../../../index.php">Retour à l'Accueil</a>
+
+<!-- fermer la tamporisation de sortie et le mettre dans une variable -->
+<?php $content = ob_get_clean(); ?>
+<?php require_once '../../../view_template.php'; ?>
+
+
 </body>
 
 

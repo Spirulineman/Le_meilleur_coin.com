@@ -11,7 +11,7 @@ require_once "../../../config/class-singleton.php";
 
 require_once "../../../Model/UserModel.php";
 require_once "../../../Entity/User.php";
-require_once "../../../inc/outils__perso__jonas__.php";
+// require_once "../../../inc/outils__perso__jonas__.php";
 
 /* ************************************************************************** */
 
@@ -101,6 +101,9 @@ if (isset($_POST['create'])) {
      /*                                    RENDU                                   */
      /* ************************************************************************** */ -->
 
+<!-- demarre une tamporisation de sortie -->
+<?php ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -167,6 +170,8 @@ if (isset($_POST['create'])) {
 </head>
 
 <body>
+
+    <h1>Créer un Utilisateur</h1>
     <form method="post" id="crea">
 
         <div><input type="text" name="nom" placeholder="Nom"></div>
@@ -186,3 +191,7 @@ if (isset($_POST['create'])) {
 </body>
 
 </html>
+
+<!-- fermer la tamporisation de sortie et le mettre dans une variable -->
+<?php $content = ob_get_clean(); ?>
+<?php require_once '../../../view_template.php'; ?>

@@ -3,17 +3,17 @@
 /*                                 CONNEXION BDD                              */
 /* ************************************************************************** */
 
-require_once "../../../config/class-singleton.php";
+require_once "config/class-singleton.php";
 
 /* ************************************ . *********************************** */
 
-require_once "../../../Model/UserModel.php";
-require_once "../../../Entity/User.php";
-// require_once "../../../inc/outils__perso__jonas__.php";
+require_once "Model/UserModel.php";
+require_once "Entity/User.php";
+require_once "inc/outils__perso__jonas__.php";
 
-require_once "../../../Model/ArticleModel.php";
-require_once "../../../Entity/Article.php";
-require_once '../../../template/panier/panier.php';
+require_once "Model/ArticleModel.php";
+require_once "Entity/Article.php";
+require_once 'template/panier/panier.php';
 /* ************************************************************************** */
 
 
@@ -47,13 +47,16 @@ if (isset($_GET['deco'])) {
 
 $articleModel = new ArticleModel();
 $articles = $articleModel->selectAllArticle();
-// var_dump($_SESSION);
+//pre_var_dump($_SESSION['userconnecte'], null, true);
 
 ?>
 
+<!-- demarre une tamporisation de sortie -->
+<?php //ob_start(); ?>
+
 
 <!-- /* *******************************  RENDU  *********************************** */ -->
-<!-- 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,19 +65,14 @@ $articles = $articleModel->selectAllArticle();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
 
-    <! -- /* ******************************** LESSTOCSS ******************************* */ -- >
+    <!-- /* ******************************** LESSTOCSS ******************************* */ -->
 
     <link rel="lib/LessToCss/stylesheet/less" type="text/css" href="test.less" />
     <script src="JsDelivr.js"></script>
 </head>
-<! -- *****************************************************************    -->
+<!-- *****************************************************************    -->
 
 <body>
-<?php $title = 'Tarifs'; ?>
-
-<!-- demarre une tamporisation de sortie -->
-<?php ob_start(); ?>
-
     <div>
         <h1> Gestion des Articles </h1><br>
         <h3>Liste des Articles</h3>
@@ -124,8 +122,8 @@ $articles = $articleModel->selectAllArticle();
                         if ($articles[$i]->getId_user() == $user->getId()) {
 
                     ?>
-                            <td><a href="../../../template/user/article/update_article.php?id=<?= $articles[$i]->getId() ?>">Modifier</a></td>
-                            <td><a href="../../../template/user/article/delete_article.php?id=<?= $articles[$i]->getId() ?>">supprimer</a></td>
+                            <td><a href="template/user/article/update_article.php?id=<?= $articles[$i]->getId() ?>">Modifier</a></td>
+                            <td><a href="template/user/article/delete_article.php?id=<?= $articles[$i]->getId() ?>">supprimer</a></td>
 
                     <?php
                         }
@@ -139,18 +137,13 @@ $articles = $articleModel->selectAllArticle();
     </table>
     <div>
         <?php if (!empty($articles_panier)) : ?>
-            <?php for ($i = 0; $i < count($articles_panier); $i++) : ?>
-                <?php 
-                    $total += (int) $articles_panier[$i]->getPrix();
-                    $elements = count($articles_panier) 
-                ?>
-                    <?php // pre_var_dump( $articles_panier[$i]->getPrix() , null, true) ?>
+            <?php for ($i = 0; $i < count($articles_panier); $i++) : $total += $articles_panier[$i]->getPrix();
+                $elements = count($articles_panier) ?>
             <?php endfor ?>
         <?php endif ?>
-
         <label>Total : </label><span><?= $total ?>€</span>
         <label>Elément(s) : </label><span><?= $elements ?></span>
-        <a href="../../../template/user/panier/addpanier.php">Panier</a>
+        <a href="template/panier/addpanier.php">Panier</a>
     </div>
     <div>
 
@@ -176,17 +169,17 @@ $articles = $articleModel->selectAllArticle();
                     <?php
                     if (!empty($_SESSION['userconnecte'])) {
                         if ($articles[$i]->getId_user() == $user->getId()) {  ?>
-                            <td><a href="../../../update_article.php?id=<?= $articles[$i]->getId() ?>">Modifier</a></td>
-                            <td><a href="../../../delete_article.php?id=<?= $articles[$i]->getId() ?>">supprimer</a></td>
+                            <td><a href="update_article.php?id=<?= $articles[$i]->getId() ?>">Modifier</a></td>
+                            <td><a href="delete_article.php?id=<?= $articles[$i]->getId() ?>">supprimer</a></td>
                         <?php
                         } else {
                         ?>
-                            <a class="add" href="get_all_article.php?id_article_panier=<?= $articles[$i]->getId() ?>">Ajouter au panier</a>
+                            <a class="add" href="index.php?id_article_panier=<?= $articles[$i]->getId() ?>">Ajouter au panier</a>
                         <?php
                         }
                     } else {
                         ?>
-                        <a class="add" href="get_all_article.php?id_article_panier=<?= $articles[$i]->getId() ?>">Ajouter au panier</a>
+                        <a class="add" href="index.php?id_article_panier=<?= $articles[$i]->getId() ?>">Ajouter au panier</a>
                     <?php
                     }
                     ?>
@@ -208,8 +201,8 @@ $articles = $articleModel->selectAllArticle();
 
         } else {
         ?>
-            <a href="../../../template/user/User_connect.php">Se connecter</a>
-            <a href="../../../template/user/create_user.php">inscription</a>
+            <a href="template/user/User_connect.php">Se connecter</a>
+            <a href="template/user/create_user.php">inscription</a>
 
         <?php
         }
@@ -217,14 +210,11 @@ $articles = $articleModel->selectAllArticle();
 
 
     </div>
-    <a href="../../../template/user/article/create_article.php">Créer Article </a>
-    <a href="../../../template/user/tableauBord.php">Tableau de bord </a>
+    <a href="template/user/article/create_article.php">Créer Article </a>
+    <a href="template/user/tableauBord.php">Tableau de bord </a>
     <?php if(isset($user) && $user->getAdmin() ==1 ){?>
-        <a href="../../../template/admin/user/Get_users.php">Gestion des utilisateur</a>
+        <a href="template/admin/user/Get_users.php">Gestion des utilisateur</a>
     <?php }?>
 </body>
 
-<!-- </html> -->
-<!-- fermer la tamporisation de sortie et le mettre dans une variable -->
-<?php $content = ob_get_clean(); ?>
-<?php require_once '../../../view_template.php'; ?>
+</html>

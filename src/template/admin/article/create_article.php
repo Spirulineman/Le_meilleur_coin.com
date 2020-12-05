@@ -79,6 +79,9 @@ pre_var_dump($user);
 
 <!-- /* *******************************  RENDU  *********************************** */ -->
 
+<!-- demarre une tamporisation de sortie -->
+<?php ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -127,3 +130,7 @@ pre_var_dump($user);
 </body>
 
 </html>
+
+<!-- fermer la tamporisation de sortie et le mettre dans une variable -->
+<?php $content = ob_get_clean(); ?>
+<?php require_once '../../../view_template.php'; ?>

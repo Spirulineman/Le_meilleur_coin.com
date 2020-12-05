@@ -4,17 +4,17 @@
 /*                                 CONNEXION BDD                              */
 /* ************************************************************************** */
 
-require_once "../../config/class-singleton.php";
+require_once "../../../config/class-singleton.php";
 
 /* ************************************ . *********************************** */
 
-require_once "../../Model/UserModel.php";
-require_once "../../Entity/User.php";
-require_once "../../inc/outils__perso__jonas__.php";
+require_once "../../../Model/UserModel.php";
+require_once "../../../Entity/User.php";
+require_once "../../../inc/outils__perso__jonas__.php";
 
-require_once "../../Model/ArticleModel.php";
-require_once "../../Entity/Article.php";
-require_once '../panier/panier.php';
+require_once "../../../Model/ArticleModel.php";
+require_once "../../../Entity/Article.php";
+require_once '../../panier/panier.php';
 /* ************************************************************************** */
 
 
@@ -84,6 +84,8 @@ $CA= ChiffreAff($Db_connect, $user->getId());
 
 ?>
 
+<?php ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,3 +118,7 @@ $CA= ChiffreAff($Db_connect, $user->getId());
 </body>
 
 </html>
+
+<!-- fermer la tamporisation de sortie et le mettre dans une variable -->
+<?php $content = ob_get_clean(); ?>
+<?php require_once '../../../view_template.php'; ?>
