@@ -1,5 +1,5 @@
 <?php
-
+// on a besoin des getter setter pour récupérer les valeurs dans les variables d'où les Entités (Entity) qui fonctionnent en synergie avec les Modeles (Model)
 class Article{
 
     public $id;
