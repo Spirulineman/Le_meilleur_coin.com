@@ -30,7 +30,7 @@ if(isset($_SESSION['userconnecte'])){
     <script src="JsDelivr.js"></script>
 </head>
 
-<body>
+<body class="body">
     <div class="headersticky">
     <header>
         <h1>
