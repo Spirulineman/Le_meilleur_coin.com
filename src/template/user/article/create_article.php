@@ -81,18 +81,58 @@ if (isset($_POST['add'])) {
 
 <!-- demarre une tamporisation de sortie -->
 <?php ob_start(); ?>
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../../lib/jquery-3.5.1.min.js"></script>
+    <script src="../../../lib/jquery.validate.min.js"></script>
+    <script src="../../../lib/messages_fr.js"></script>
+    <script>
+        $(function() {
+
+        
+            $('#create_article_user').validate({
+
+                rules: {
+                    titre: {
+                        minlength: 2,
+                        required: true
+                    },
+
+                    description: {
+
+                        minlength: 2,
+                        required: true
+                    },
+
+                    prix: {
+
+                     
+                        required: true
+                    },
+
+                    disponible: {
+
+                        required: true,
+                        
+                    },
+                   
+
+                }
+
+            });
+
+        });
+    </script>
     <title>Creer un Article</title>
-</head> -->
+</head>
 
 <body>
     <h1> Créer des Articles </h1>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" id="create_article_user">
 
         <div>
             <label for="titre">Titre</label>

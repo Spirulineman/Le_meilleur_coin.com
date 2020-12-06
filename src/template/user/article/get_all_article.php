@@ -13,7 +13,7 @@ require_once "../../../Entity/User.php";
 
 require_once "../../../Model/ArticleModel.php";
 require_once "../../../Entity/Article.php";
-require_once '../../../template/panier/panier.php';
+require_once '../../../template/user/panier/panier.php';
 /* ************************************************************************** */
 
 
@@ -82,62 +82,13 @@ $articles = $articleModel->selectAllArticle();
     <div>
         <?php
         if (isset($_GET['success'])) {
-        ?>
-            <div><?= "|**************************************************************************************************|" ?></div>
-            <div><?= "|-------------------------------------- =!=>>| Votre commande à bien été validée |<<=!= -----------------------------------------------|" ?></div>
-            <div><?= "|**************************************************************************************************|" ?></div>
-        <?php
+            echo "Votre commande à bien été validée";
         }
         ?>
         <br>
     </div>
-    <table class="table">
-
-        <thead id="thead_table">
-            <tr>
-                <th>Titre</th>
-                <th>Description</th>
-                <th>Date de création</th>
-                <th>Prix €</th>
-                <th>Nom de photo</th>
-                <th>Disponibilité</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php for ($i = 0; $i < count($articles); $i++) : ?>
-                <tr>
-                    <td><?= $articles[$i]->getTitre() ?></td>
-                    <td><?= $articles[$i]->getDescription() ?></td>
-                    <td><?= $articles[$i]->getDate_creation()->format('d/m/Y') ?></td>
-                    <td><?= $articles[$i]->getPrix() ?> €</td>
-                    <td><?= $articles[$i]->getPhoto() ?></td>
-                    <td>
-                        <?php if ($articles[$i]->getDisponible() == '1') : ?>
-                            Disponible
-                        <?php else : ?>
-                            Indisponible
-                        <?php endif ?>
-                    </td>
-                    <?php
-
-                    if (!empty($_SESSION['userconnecte'])) {
-                        if ($articles[$i]->getId_user() == $user->getId()) {
-
-                    ?>
-                            <td><a href="../../../template/user/article/update_article.php?id=<?= $articles[$i]->getId() ?>">Modifier</a></td>
-                            <td><a href="../../../template/user/article/delete_article.php?id=<?= $articles[$i]->getId() ?>">supprimer</a></td>
-
-                    <?php
-                        }
-                    }
-                    ?>
-
-                </tr>
-            <?php endfor ?>
-        </tbody>
-
-    </table>
-    <div>
+   
+    <div class="total">
         <?php if (!empty($articles_panier)) : ?>
             <?php for ($i = 0; $i < count($articles_panier); $i++) : ?>
                 <?php 
@@ -179,8 +130,8 @@ $articles = $articleModel->selectAllArticle();
                     <?php
                     if (!empty($_SESSION['userconnecte'])) {
                         if ($articles[$i]->getId_user() == $user->getId()) {  ?>
-                            <td><a href="../../../update_article.php?id=<?= $articles[$i]->getId() ?>">Modifier</a></td>
-                            <td><a href="../../../delete_article.php?id=<?= $articles[$i]->getId() ?>">supprimer</a></td>
+                            <a href="update_article.php?id=<?= $articles[$i]->getId() ?>">Modifier</a>
+                            <a  class="supp" href="delete_article.php?id=<?= $articles[$i]->getId() ?>">supprimer</a>
                         <?php
                         } else {
                         ?>
@@ -200,31 +151,8 @@ $articles = $articleModel->selectAllArticle();
 
 
 
-    <div>
-        <?php
-        if (!empty($_SESSION['userconnecte'])) {
-        ?>
-            <form method="post">
-                <input type="submit" value="déconnexion" id="deco" name="deco">
-            </form>
-        <?php
-
-        } else {
-        ?>
-            <a href="../../../template/user/User_connect.php">Se connecter</a>
-            <a href="../../../template/user/create_user.php">inscription</a>
-
-        <?php
-        }
-        ?>
-
-
-    </div>
-    <a href="../../../template/user/article/create_article.php">Créer Article </a>
-    <a href="../../../template/user/tableauBord.php">Tableau de bord </a>
-    <?php if(isset($user) && $user->getAdmin() ==1 ){?>
-        <a href="../../../template/admin/user/Get_users.php">Gestion des utilisateur</a>
-    <?php }?>
+    
+   
 </body>
 
 <!-- </html> -->

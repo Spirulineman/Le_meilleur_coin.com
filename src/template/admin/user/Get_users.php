@@ -40,7 +40,7 @@ $users = $userModel->selectAllUser();
         <h1> Gestion des Utilisateurs </h1>
         <h3>Liste des Utilisateurs</h3>
     </div>
-    <table>
+    <table class="table">
         <thead>
             <th>Nom</th>
             <th>Prénom</th>
@@ -77,8 +77,7 @@ $users = $userModel->selectAllUser();
         </tbody>
 
     </table>
-    <a href="../article/get_article.php">Retour à l'Accueil</a>
-    <a href="create_user.php">Créate un utilisateur</a>
+  
 </body>
 
 </html>

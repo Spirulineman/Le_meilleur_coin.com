@@ -110,9 +110,9 @@ if (isset($_POST['create'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../../lib/jquery-3.5.1.min.js"></script>
-    <script src="../../lib/jquery.validate.min.js"></script>
-    <script src="../../lib/messages_fr.js"></script>
+    <script src="../../../lib/jquery-3.5.1.min.js"></script>
+    <script src="../../../lib/jquery.validate.min.js"></script>
+    <script src="../../../lib/messages_fr.js"></script>
     <script>
         $(function() {
 
@@ -181,13 +181,13 @@ if (isset($_POST['create'])) {
         <div></div>
         <div><input type="text" name="mail" placeholder="Mail"></div>
         <div><input type="number" name="telephone" placeholder="Téléphone"></div>
-        <div><input type="text" name="pwd" placeholder="Mot de Passe" id="pwd"></div>
-        <div><input type="text" name="Confirme_Password" placeholder="Confirmation Mot de Passe"></div>
+        <div><input type="password" name="pwd" placeholder="Mot de Passe" id="pwd"></div>
+        <div><input type="password" name="Confirme_Password" placeholder="Confirmation Mot de Passe"></div>
         <div><input type="submit" value="Créer" name="create"></div>
 
     </form>
 
-    <a href="Get_users.php">Retour à l'accueil</a>
+  
 </body>
 
 </html>

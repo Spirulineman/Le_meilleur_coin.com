@@ -75,29 +75,71 @@ if (isset($_POST['update'])) {
     if (empty($errors)) {
 
         $articleModel->updateArticle($id, $titre, $description, $prix, $photo, $disponible, $id_user);
-        header_location('../../../index.php');
+        header_location('get_all_article.php');
     } else {
         // pre_var_dump('update_article.php l 69', $errors);
     }
 }
 
-pre_var_dump($article);
+//pre_var_dump($article);
 ?>
 
 <!-- /* *******************************  RENDU  *********************************** */ -->
-
+<!-- demarre une tamporisation de sortie -->
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../../lib/jquery-3.5.1.min.js"></script>
+    <script src="../../../lib/jquery.validate.min.js"></script>
+    <script src="../../../lib/messages_fr.js"></script>
+    <script>
+        $(function() {
+
+        
+            $('#modfier_article_user').validate({
+
+                rules: {
+                    titre: {
+                        minlength: 2,
+                        required: true
+                    },
+
+                    description: {
+
+                        minlength: 2,
+                        required: true
+                    },
+
+                    prix: {
+
+                        
+                        required: true
+                    },
+
+                    disponible: {
+
+                        required: true,
+                        number:true
+                    },
+
+                   
+
+                }
+
+            });
+
+        });
+    </script>
     <title>Modifier un Article</title>
 </head>
 
 <body>
     <h1> Modifier un Article </h1>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" id="modfier_article_user">
 
         <div>
             <label for="titre">Titre</label>
@@ -150,6 +192,10 @@ pre_var_dump($article);
         </div>
 
     </form>
+
 </body>
+<!-- fermer la tamporisation de sortie et le mettre dans une variable -->
+<?php $content = ob_get_clean(); ?>
+<?php require_once '../../../view_template.php'; ?>
 
 </html>

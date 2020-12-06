@@ -39,12 +39,12 @@ $articles = $articleModel->selectAllArticle();
 </head>
 
 <body>
-    <a href="create_article.php">Ajouter un article</a>
+    
     <div>
         <h1> Gestion des Articles </h1>
         <h3>Liste des Articles</h3>
     </div>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Titre</th>
@@ -77,7 +77,7 @@ $articles = $articleModel->selectAllArticle();
         </tbody>
 
     </table>
-    <a href="../user/Get_users.php">Gestion des utilisateur</a>
+   
 </body>
 
 </html>

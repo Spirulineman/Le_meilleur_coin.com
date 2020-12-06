@@ -71,7 +71,7 @@ if(isset($_POST['commande'])){
             $_SESSION['panier'] = array();
         }
 
-        header('Location: ../../../index.php?success=true');
+        header('Location: ../article/get_all_article.php?success=true');
         die;
     }
 
@@ -84,7 +84,7 @@ $articles = $articleModel->selectArticlePanier($_SESSION['panier']);
 
 <!-- demarre une tamporisation de sortie -->
 <?php ob_start(); ?>
-<table>
+<table class="table">
 
     <thead>
         <tr>
@@ -100,8 +100,12 @@ $articles = $articleModel->selectArticlePanier($_SESSION['panier']);
                 <tr>
                     <td><?= $articles[$i]->getTitre() ?></td>
                     <td><?= $articles[$i]->getPrix() ?> €</td>
-                    <td><?= $articles[$i]->getPhoto() ?></td>
-                    <td><a href="addpanier.php?del=<?= $articles[$i]->getId() ?>">supprimer</a></td>
+                    <td><?= $articles[$i]->getPhoto() ?>
+                    <?php if($articles[$i]->getPhoto() != null): ?>
+                    <img  class="img" src="../../../images/<?= $articles[$i]->getPhoto() ?>" alt="" srcset="">
+                <?php endif ?>
+                </td>
+                    <td><a  class="supp" href="addpanier.php?del=<?= $articles[$i]->getId() ?>">supprimer</a></td>
                 </tr>
             <?php endfor ?>
         <?php endif ?>
@@ -110,15 +114,15 @@ $articles = $articleModel->selectArticlePanier($_SESSION['panier']);
 </table>
 
 <label>Prix Total : </label><span><?php echo $total ?>€</span>
-<a href="../../../index.php">Retour </a>
+
 
 <br>
 <?php if (isset($_SESSION["userconnecte"]) && !empty($_SESSION['panier'])) : ?>
-
-    <form method="post" id="commande">
+    <div>
+    <form method="post" id="commande" class="payer_la_commande">
         <input type="submit" value="payer la commande" id="commande" name="commande">
     </form>
-
+    </div>
 <?php else : ?>
 
     <?php if (!empty($_SESSION['panier'])) : ?>

@@ -31,7 +31,7 @@ if(isset($_SESSION['userconnecte'])){
 </head>
 
 <body>
-    
+    <div class="headersticky">
     <header>
         <h1>
             Le Meilleur coin 
@@ -75,3 +75,4 @@ if(isset($_SESSION['userconnecte'])){
         </nav>
 
     </header>
+    

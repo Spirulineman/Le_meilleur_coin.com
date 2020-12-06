@@ -152,7 +152,7 @@ if (isset($_POST["connecter"])) {
 
     </form>
     
-    <a href="../../../index.php">Retour à l'Accueil</a>
+    
 <!-- </body>
 
 </html> -->

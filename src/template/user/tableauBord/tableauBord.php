@@ -14,7 +14,7 @@ require_once "../../../inc/outils__perso__jonas__.php";
 
 require_once "../../../Model/ArticleModel.php";
 require_once "../../../Entity/Article.php";
-require_once '../../panier/panier.php';
+require_once '../panier/panier.php';
 /* ************************************************************************** */
 
 
@@ -98,7 +98,7 @@ $CA= ChiffreAff($Db_connect, $user->getId());
 
 <body>
     <h1>Tableau de Bord</h1>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Annonce En Cours</th>
@@ -114,7 +114,7 @@ $CA= ChiffreAff($Db_connect, $user->getId());
             </tr>
         </tbody>
     </table>
-    <a href="../../index.php"> accueil</a>
+    
 </body>
 
 </html>
