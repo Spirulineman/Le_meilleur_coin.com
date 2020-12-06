@@ -67,7 +67,7 @@ if (isset($_POST['add'])) {
     if (empty($errors)) {
 
         $articleModel->createArticle($titre, $description, $prix, $photo, $user->getId());
-        header_location('get_article.php');
+        header_location('get_all_article.php');
     }
     /* else{
         pre_var_dump('create_article.php l 69', $errors);
@@ -81,7 +81,6 @@ if (isset($_POST['add'])) {
 
 <!-- demarre une tamporisation de sortie -->
 <?php ob_start(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,7 +94,7 @@ if (isset($_POST['add'])) {
         $(function() {
 
         
-            $('#create_article_admin').validate({
+            $('#create_article_user').validate({
 
                 rules: {
                     titre: {
@@ -133,7 +132,7 @@ if (isset($_POST['add'])) {
 
 <body>
     <h1> Créer des Articles </h1>
-    <form method="post" enctype="multipart/form-data" id="create_article_admin">
+    <form method="post" enctype="multipart/form-data" id="create_article_user">
 
         <div>
             <label for="titre">Titre</label>
@@ -166,7 +165,7 @@ if (isset($_POST['add'])) {
         </div>
 
     </form>
-  
+    <a href="../../../index.php">Retour à l'Accueil</a>
 </body>
 
 </html>

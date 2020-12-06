@@ -6,13 +6,13 @@ session_start();
 /*                                 CONNEXION BDD                              */
 /* ************************************************************************** */
 
-require_once "../../config/class-singleton.php";
+require_once "../../../config/class-singleton.php";
 
 /* ************************************ . *********************************** */
 
-require_once "../../Model/UserModel.php";
-require_once "../../Entity/User.php";
-require_once "../../inc/outils__perso__jonas__.php";
+require_once "../../../Model/UserModel.php";
+require_once "../../../Entity/User.php";
+// require_once "../../../inc/outils__perso__jonas__.php";
 
 /* ************************************************************************** */
 
@@ -46,18 +46,21 @@ if (isset($_POST["connecter"])) {
     if (empty($errors)) {
 
         $user = $userModel->Connect($mail);
-        //var_dump($user);
+        
+        
 
         if (!empty($user)) {
-
             if (password_verify($pwd, $user->getPwd())) {
+
                 if ($user->getAdmin() == 0) {
+
+                    // pre_var_dump($_SESSION,null,true);
                     $_SESSION['userconnecte'] = $user;
-                    header('Location: ../../index.php');
+                    header('Location: ../article/get_all_article.php');
                     die;
                 } else {
                     $_SESSION['userconnecte'] = $user;
-                    header('Location: ../admin/article/get_article.php');
+                    header('Location: ../../admin/article/get_article.php');
                     die;
                 }
             } else {
@@ -79,15 +82,17 @@ if (isset($_POST["connecter"])) {
 
 
 ?>
+<!-- demarre une tamporisation de sortie -->
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../../lib/jquery-3.5.1.min.js"></script>
-    <script src="../../lib/jquery.validate.min.js"></script>
-    <script src="../../lib/messages_fr.js"></script>
+    <script src="../../../lib/jquery-3.5.1.min.js"></script>
+    <script src="../../../lib/jquery.validate.min.js"></script>
+    <script src="../../../lib/messages_fr.js"></script>
 
     <script>
         $(function() {
@@ -132,6 +137,13 @@ if (isset($_POST["connecter"])) {
     <?php
     }
     ?>
+
+<?php if(isset($_GET['success_inscriptoin'])) : ?>
+    <p>Super !!! vous êtes inscrit sur le site, vous pouvez vous connectez maintenant</p>
+<?php endif ?>
+
+    <h1>Connexion</h1>
+
     <form method="post" id="conn">
 
         <input type="text" name="mail" id="mail">
@@ -140,7 +152,10 @@ if (isset($_POST["connecter"])) {
 
     </form>
     
-    <a href="../../index.php">Retour à l'Accueil</a>
-</body>
+    
+<!-- </body>
 
-</html>
+</html> -->
+<!-- fermer la tamporisation de sortie et le mettre dans une variable -->
+<?php $content = ob_get_clean(); ?>
+<?php require_once '../../../view_template.php'; ?>

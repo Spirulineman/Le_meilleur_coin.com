@@ -12,7 +12,7 @@ require_once "../../../config/class-singleton.php";
 
 require_once "../../../Model/UserModel.php";
 require_once "../../../Entity/User.php";
-require_once "../../../inc/outils__perso__jonas__.php";
+// require_once "../../../inc/outils__perso__jonas__.php";
 
 /* ************************************************************************** */
 
@@ -32,12 +32,15 @@ $users = $userModel->selectAllUser();
     <title>Document</title>
 </head>
 
+<!-- demarre une tamporisation de sortie -->
+<?php ob_start(); ?>
+
 <body>
     <div>
         <h1> Gestion des Utilisateurs </h1>
         <h3>Liste des Utilisateurs</h3>
     </div>
-    <table>
+    <table class="table">
         <thead>
             <th>Nom</th>
             <th>Prénom</th>
@@ -74,7 +77,11 @@ $users = $userModel->selectAllUser();
         </tbody>
 
     </table>
-    <a href="../../../index.php">Retour à l'Accueil</a>
+  
 </body>
 
 </html>
+
+<!-- fermer la tamporisation de sortie et le mettre dans une variable -->
+<?php $content = ob_get_clean(); ?>
+<?php require_once '../../../view_template.php'; ?>

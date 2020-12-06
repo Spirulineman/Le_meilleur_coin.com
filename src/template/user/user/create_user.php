@@ -11,7 +11,7 @@ require_once "../../../config/class-singleton.php";
 
 require_once "../../../Model/UserModel.php";
 require_once "../../../Entity/User.php";
-// require_once "../../../inc/outils__perso__jonas__.php";
+// require_once "../../inc/outils__perso__jonas__.php";
 
 /* ************************************************************************** */
 
@@ -86,11 +86,14 @@ if (isset($_POST['create'])) {
 
     if (empty($errors)) {
 
-        $userModel->createUser($user);
+        $user = $userModel->createUser($user);
+
+        header('Location: User_connect.php?success_inscriptoin=1');
+        die;
+        
     }
 
-    header('Location: GEt_users.php');
-    die;
+    
 }
 
 
@@ -103,7 +106,6 @@ if (isset($_POST['create'])) {
 
 <!-- demarre une tamporisation de sortie -->
 <?php ob_start(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -166,12 +168,11 @@ if (isset($_POST['create'])) {
 
         });
     </script>
-    <title>Créer un Utilisateur</title>
+    <title>Inscription</title>
 </head>
 
+<h1>Inscription</h1>
 <body>
-
-    <h1>Créer un Utilisateur</h1>
     <form method="post" id="crea">
 
         <div><input type="text" name="nom" placeholder="Nom"></div>
@@ -181,17 +182,16 @@ if (isset($_POST['create'])) {
         <div></div>
         <div><input type="text" name="mail" placeholder="Mail"></div>
         <div><input type="number" name="telephone" placeholder="Téléphone"></div>
-        <div><input type="password" name="pwd" placeholder="Mot de Passe" id="pwd"></div>
-        <div><input type="password" name="Confirme_Password" placeholder="Confirmation Mot de Passe"></div>
+        <div><input type="text" name="pwd" placeholder="Mot de Passe" id="pwd"></div>
+        <div><input type="text" name="Confirme_Password" placeholder="Confirmation Mot de Passe"></div>
         <div><input type="submit" value="Créer" name="create"></div>
 
     </form>
 
-  
+    <!-- <a href="../../index.php">Retour à l'accueil</a> -->
 </body>
 
 </html>
 
-<!-- fermer la tamporisation de sortie et le mettre dans une variable -->
 <?php $content = ob_get_clean(); ?>
 <?php require_once '../../../view_template.php'; ?>

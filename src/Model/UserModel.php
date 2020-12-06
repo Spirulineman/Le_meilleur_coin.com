@@ -64,7 +64,7 @@ class UserModel extends Model{
             )
 
         );
-        var_dump($stmt);
+        //var_dump($stmt);
     //return $stmt->$this->Db_connect->lastInsertId();
 
 

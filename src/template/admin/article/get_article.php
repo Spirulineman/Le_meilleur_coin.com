@@ -11,15 +11,23 @@ require_once "../../../config/class-singleton.php";
 
 require_once "../../../Model/ArticleModel.php";
 require_once "../../../Entity/Article.php";
+require_once "../../../Entity/User.php";
+require_once "../../../outil/outil.php";
 
 /* ************************************************************************** */
+
+session_start();
 
 $articleModel = new ArticleModel();
 $articles = $articleModel->selectAllArticle();
 
+// pre_var_dump($_SESSION["userconnecte"]->getAdmin());
 ?>
 
 <!-- /* *******************************  RENDU  *********************************** */ -->
+
+<!-- demarre une tamporisation de sortie -->
+<?php ob_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,12 +39,12 @@ $articles = $articleModel->selectAllArticle();
 </head>
 
 <body>
-    <a href="create_article.php">Ajouter un article</a>
+    
     <div>
         <h1> Gestion des Articles </h1>
         <h3>Liste des Articles</h3>
     </div>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Titre</th>
@@ -69,6 +77,11 @@ $articles = $articleModel->selectAllArticle();
         </tbody>
 
     </table>
+   
 </body>
 
 </html>
+
+<!-- fermer la tamporisation de sortie et le mettre dans une variable -->
+<?php $content = ob_get_clean(); ?>
+<?php require_once '../../../view_template.php'; ?>
