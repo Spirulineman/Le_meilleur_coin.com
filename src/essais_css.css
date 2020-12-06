@@ -1,0 +1,16 @@
+/* On applique la même valeur aux quatre côtés */
+padding: 1em;
+
+/* vertical | horizontal */
+padding: 5% 10%;
+
+/* haut | horizontal | bas */
+padding: 1em 2em 2em; 
+
+/* haut | droit | bas | gauche */
+padding: 5px 1em 0 2em;
+
+/* Valeurs globales */
+padding: inherit;
+padding: initial;
+padding: unset;

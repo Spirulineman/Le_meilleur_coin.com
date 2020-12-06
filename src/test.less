@@ -6,15 +6,15 @@
 @text-color : #a497c9;
 @text-color-titre : #3a5c3a;
 @text-color-h3-reponse : #f9faf998;
-@base-url: "image";
+@base-url: "images/__BackGround_";
 
 body{
 
     background-color: rgb(71, 71, 71);
-    background-image: url("@{base-url}/istockphoto-1138395421-612x612.jpg");
+    background-image: url("@{base-url}/dse_background_05_gradient_white.png");
     background-size: cover;
     align-content: center;
-    color: rgba(250, 235, 215, 0.582);
+    color: rgba(3, 3, 3, 0.582);
     
     h3>.th_h3{
         background-color: rgb(137, 137, 141);
@@ -34,9 +34,11 @@ body{
     >table {
 
         border-spacing: 0.5rem;
+        background-color: rgba(255, 127, 80, 0.226);
 
-        >thead>#thead_table{
+        >thead#thead_table{
             border-radius: 5px 20px 5px;
+            text-shadow: 1px 1px rgba(17, 17, 17, 0.596);
         }
 
     }
@@ -45,27 +47,34 @@ body{
         
         margin-top: 10px;
         margin-bottom: 10px;
-        background-color: rgb(14, 15, 15);
-        
+        //background-color: rgba(206, 125, 5, 0.925);
+        color: white;
         width: max-content; //width: fit-content;
         
-        
+        >th {
 
-        >#th{
-
-            border-top: 2px solid rgb(139, 139, 77);
-            border-radius: 5px 20px 5px/65px 65px;
+            border-bottom: 2px solid rgb(19, 19, 14);
+            padding: 0px 15px 0px 15px;
         }
 
-        >#th_1 {
-            color: rgb(230, 153, 53);
+        >th#th_titre{
 
+            border-top: 2px solid rgb(19, 19, 14);
+            border-radius: 5px 20px 5px/65px 65px;
+
+        }
+
+        >th#th_descript {
+
+            color: rgb(230, 153, 53);
+            border-top: 2px solid rgb(19, 19, 14);
             //margin: 25px;
         
         }
 
-        >#th_2 {
+        >th#th_dateCrea{
 
+            border-top: 2px solid rgb(19, 19, 14);
             color: rgb(247, 58, 25);
             //margin: 5px;
             padding: 5px;
@@ -75,8 +84,9 @@ body{
 
         
 
-        >#td_moy {
+        >th#th_prix {
 
+            border-top: 2px solid rgb(19, 19, 14);
             color: rgb(223, 145, 43);
             //margin: 5px;
             padding: 5px;
@@ -86,26 +96,62 @@ body{
             
         }
 
-        >th>#td_moy_number {
+        >th#th_photo {
+
+            border-top: 2px solid rgb(19, 19, 14);
             color: rgb(247, 58, 25);
             text-align: center;
         }
 
          
+        >th#th_dispo {
+
+            border-top: 2px solid rgb(19, 19, 14);
+            color: rgb(247, 58, 25);
+            text-align: center;
+        }
+
+        >th#th_modif {
+
+            border-top: 2px solid rgb(19, 19, 14);
+            color: rgb(247, 58, 25);
+            text-align: center;
+        }
+
+        >th#th_suppr {
+
+            border-top: 2px solid rgb(19, 19, 14);
+            color: rgb(247, 58, 25);
+            text-align: center;
+        }
+
         
     }  //  -------> >table>thead>tr
 
+    // -------------------   ------------------------------
+
+    >table>tbody>tr>td#titre{
+
+            border-top: 2px solid rgb(19, 19, 14);
+            color: black;
+            //border-radius: 5px 20px 5px/65px 65px;
+            margin-left: 15px;
+            padding: 0px 0px 15px 15px;
+
+            border-bottom: 2px solid rgb(19, 19, 14);
+            border-radius: 5px 20px 5px/65px 65px;
+        }
+
         /* ****************************** TD_ALL ****************************** */
 
-        >table>tbody>tr{
+        >table>tbody>tr>td> {
 
-            >#td_all_NOM{
+            #titre{
 
-                background-color: rgba(10, 10, 15, 0.801);
-                color: rgb(238, 69, 17);
-                text-align: left;
-                text-transform: uppercase;
-                padding: 0px 8px 0px 8px;
+                color: red;
+                padding: 0px 15px 0px 15px;
+                //padding: 1em;
+                margin-right: 10px;
                
             }
 
@@ -177,8 +223,145 @@ body{
             }
     
         } //  ----> >table>tbody>tr
-    
+
 } // BODY
+
+// -------------   DIV PANIER ------------
+    
+        body>div#panier {
+
+            background-color: rgba(204, 165, 165, 0.164);
+            text-align: center;
+            text-shadow: 1px 1px rgba(22, 22, 22, 0.774);
+            border: solid 2px transparent;
+            border-radius: 20px 5px 20px;
+            border-right-color: rgba(250, 14, 14, 0.692);
+            padding: 7px;
+            width: auto;
+            
+            >a#link_panier{
+                
+                color: red;
+
+            }
+
+            >div>span>h3#prix_total{
+
+                font-size: 25px;
+                color: rgba(255, 0, 0, 0.829);
+                text-shadow: 1px 1px rgba(22, 22, 22, 0.774);
+
+            }
+
+            
+
+    }
+
+/* ************************************************************************** */
+/*                                   ARTICLE                                  */
+/* ************************************************************************** */
+
+    body>div#article {
+                
+        text-align: center;
+
+     /* ***************************   GRID  *************************** */
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+
+        grid-column-gap: 10px;
+        grid-row-gap: 15px;
+
+
+
+        >div {
+        background-color: #f594162a;
+        
+        }
+
+        >div>table>tr>#tab_left{
+
+            a position:absolute;
+            left:0px;
+
+        }
+
+        /* ********************** CELLULES ****************** */
+
+        >div>div>b> {
+
+            label#titre{
+
+                color: rgb(255, 173, 49);
+                text-shadow: 1px 1px rgba(22, 22, 22, 0.774);
+                background-color: rgba(75, 74, 73, 0.247);
+
+            }
+
+            label#descript{
+
+                color: rgb(255, 173, 49);
+                text-shadow: 1px 1px rgba(22, 22, 22, 0.774);
+                background-color: rgba(75, 74, 73, 0.247);
+
+            }
+
+            label#dateCrea{
+
+                color: rgb(255, 173, 49);
+                text-shadow: 1px 1px rgba(22, 22, 22, 0.774);
+                background-color: rgba(75, 74, 73, 0.247);
+
+            }
+
+            label#prix{
+
+                color: rgb(255, 173, 49);
+                text-shadow: 1px 1px rgba(22, 22, 22, 0.774);
+                background-color: rgba(75, 74, 73, 0.247);
+
+            }
+
+            label#nom{
+
+                color: rgb(255, 173, 49);
+                text-shadow: 1px 1px rgba(22, 22, 22, 0.774);
+                background-color: rgba(75, 74, 73, 0.247);
+
+            }
+            
+            label#dispo{
+
+                color: rgb(255, 173, 49);
+                text-shadow: 1px 1px rgba(22, 22, 22, 0.774);
+                background-color: rgba(75, 74, 73, 0.247);
+
+            }
+
+        }
+
+        /* ***** PRIX ***** */
+
+        >div>div>h2>span#span_prix{
+
+            font-size: 25px;
+            color: rgba(255, 0, 0, 0.829);
+            text-shadow: 1px 1px rgba(22, 22, 22, 0.774);
+        }
+
+        /* ********************** FIN CELLULES ****************** */
+
+
+}
+
+     /* *******************************   FIN GRID ***************************** */
+ 
+/* ************************************************************************** */
+/*                                 FIN  ARTICLE                               */
+/* ************************************************************************** */
 
 
     /* ************************************************************************** */
@@ -187,29 +370,36 @@ body{
 
     body>table>tfoot>tr {
             
-        //width: 90%;
         margin-top: 10px;
         margin-bottom: 10px;
-        background-color: rgb(14, 15, 15);
-        border-radius: 5px 20px 5px;
+        //background-color: rgba(206, 125, 5, 0.925);
+        color: white;
         width: max-content; //width: fit-content;
-        border: 5px solid rgb(247, 245, 245);
+        
+        >th {
 
-        >#th_foot{
-
-            border-top: 2px solid rgb(87, 87, 86);
-            border-radius: 5px 20px 5px/65px 65px;
-            
+            border-bottom: 2px solid rgb(19, 19, 14);
+            padding: 0px 15px 0px 15px;
         }
 
-        >#th_1 {
+        >th#th_titre{
+
+            border-top: 2px solid rgb(19, 19, 14);
+            border-radius: 5px 20px 5px/65px 65px;
+
+        }
+
+        >th#th_descript {
+
             color: rgb(230, 153, 53);
+            border-top: 2px solid rgb(19, 19, 14);
             //margin: 25px;
         
         }
 
-        >#th_2 {
+        >th#th_dateCrea{
 
+            border-top: 2px solid rgb(19, 19, 14);
             color: rgb(247, 58, 25);
             //margin: 5px;
             padding: 5px;
@@ -217,17 +407,45 @@ body{
             //width: fit-content;
         }
 
-        >#td_moy {
+        
 
+        >th#th_prix {
+
+            border-top: 2px solid rgb(19, 19, 14);
             color: rgb(223, 145, 43);
             //margin: 5px;
             padding: 5px;
             //width: fit-content;
             text-align: center;
-
+        
+            
         }
 
-        >th>#td_moy_number {
+        >th#th_photo {
+
+            border-top: 2px solid rgb(19, 19, 14);
+            color: rgb(247, 58, 25);
+            text-align: center;
+        }
+
+         
+        >th#th_dispo {
+
+            border-top: 2px solid rgb(19, 19, 14);
+            color: rgb(247, 58, 25);
+            text-align: center;
+        }
+
+        >th#th_modif {
+
+            border-top: 2px solid rgb(19, 19, 14);
+            color: rgb(247, 58, 25);
+            text-align: center;
+        }
+
+        >th#th_suppr {
+
+            border-top: 2px solid rgb(19, 19, 14);
             color: rgb(247, 58, 25);
             text-align: center;
         }

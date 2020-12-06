@@ -63,7 +63,8 @@ $articles = $articleModel->selectAllArticle();
 
     <!-- /* ******************************** LESSTOCSS ******************************* */ -->
 
-    <link rel="lib/LessToCss/stylesheet/less" type="text/css" href="test.less" />
+    <link rel="stylesheet/less" type="text/css" href="test.less" />
+    <script src="less.js" type="text/javascript"></script>
     <script src="JsDelivr.js"></script>
 </head>
 <!-- *****************************************************************    -->
@@ -85,27 +86,29 @@ $articles = $articleModel->selectAllArticle();
         ?>
         <br>
     </div>
-    <table>
+    <table id="tb_back">
 
         <thead id="thead_table">
             <tr>
-                <th>Titre</th>
-                <th>Description</th>
-                <th>Date de création</th>
-                <th>Prix €</th>
-                <th>Nom de photo</th>
-                <th>Disponibilité</th>
+                <th id="th_titre">Titre</th>
+                <th id="th_descript">Description</th>
+                <th id="th_dateCrea">Date de création</th>
+                <th id="th_prix">Prix €</th>
+                <th id="th_photo">Nom de photo</th>
+                <th id="th_dispo">Disponibilité</th>
+                <th id="th_modif">Modifier</th>
+                <th id="th_suppr">Supprimer</th>
             </tr>
         </thead>
         <tbody>
             <?php for ($i = 0; $i < count($articles); $i++) : ?>
                 <tr>
-                    <td><?= $articles[$i]->getTitre() ?></td>
-                    <td><?= $articles[$i]->getDescription() ?></td>
-                    <td><?= $articles[$i]->getDate_creation()->format('d/m/Y') ?></td>
-                    <td><?= $articles[$i]->getPrix() ?> €</td>
-                    <td><?= $articles[$i]->getPhoto() ?></td>
-                    <td>
+                    <td id="titre"><b><?= $articles[$i]->getTitre() ?></b></td>
+                    <td id="descript"><?= $articles[$i]->getDescription() ?></td>
+                    <td id="date_crea"><?= $articles[$i]->getDate_creation()->format('d/m/Y') ?></td>
+                    <td id="prix"><?= $articles[$i]->getPrix() ?> €</td>
+                    <td id="photo"><?= $articles[$i]->getPhoto() ?></td>
+                    <td id="dispo">
                         <?php if ($articles[$i]->getDisponible() == '1') : ?>
                             Disponible
                         <?php else : ?>
@@ -118,8 +121,9 @@ $articles = $articleModel->selectAllArticle();
                         if ($articles[$i]->getId_user() == $user->getId()) {
 
                     ?>
-                            <td><a href="template/user/article/update_article.php?id=<?= $articles[$i]->getId() ?>">Modifier</a></td>
-                            <td><a href="template/user/article/delete_article.php?id=<?= $articles[$i]->getId() ?>">supprimer</a></td>
+                            <td id="modif"><a href="template/user/article/update_article.php?id=<?= $articles[$i]->getId() ?>">Modifier</a></td>
+
+                            <td id="supp"><a href="template/user/article/delete_article.php?id=<?= $articles[$i]->getId() ?>">supprimer</a></td>
 
                     <?php
                         }
@@ -128,30 +132,63 @@ $articles = $articleModel->selectAllArticle();
 
                 </tr>
             <?php endfor ?>
+
+        <tfoot id="thead_table">
+            <tr>
+                <th id="th_titre">Titre</th>
+                <th id="th_descript">Description</th>
+                <th id="th_dateCrea">Date de création</th>
+                <th id="th_prix">Prix €</th>
+                <th id="th_photo">Nom de photo</th>
+                <th id="th_dispo">Disponibilité</th>
+                <th id="th_modif">Modifier</th>
+                <th id="th_suppr">Supprimer</th>
+            </tr>
+        </tfoot>
         </tbody>
 
     </table>
-    <div>
+    <div id="panier">
         <?php if (!empty($articles_panier)) : ?>
             <?php for ($i = 0; $i < count($articles_panier); $i++) : $total += $articles_panier[$i]->getPrix();
                 $elements = count($articles_panier) ?>
             <?php endfor ?>
         <?php endif ?>
-        <label>Total : </label><span><?= $total ?>€</span>
-        <label>Elément(s) : </label><span><?= $elements ?></span>
-        <a href="template/panier/addpanier.php">Panier</a>
+        <label>Vous avez : </label><span>
+            <h3><?= $elements ?></h3>
+        </span>
+        <a id="link_panier" href="template/panier/addpanier.php"> produit(s) dans votre panier</a>
+        <div>
+            <label id="total">Pour un <b>TOTAL</b> de : </label><span>
+                <h3 id="prix_total"><?= $total ?> €</h3>
+            </span>
+        </div>
+
+
     </div>
-    <div>
+    <div id="article">
         <?php for ($i = 0; $i < count($articles); $i++) : ?>
             <div>
-                <div><label>Titre : </label><span><?= $articles[$i]->getTitre() ?></span></div>
-                <div><label>Description : </label><span><?= $articles[$i]->getDescription() ?></span></div>
-                <div><label>Date de création : </label><span><?= $articles[$i]->getDate_creation()->format('d/m/Y') ?></span></div>
-                <div><label>Prix € : </label><span><?= $articles[$i]->getPrix() ?>€</span></div>
-                <div><label>Nom de photo : </label><span><?= $articles[$i]->getPhoto() ?></span></div>
+                <table id="tab_left"">
+                    <tr>
+                        <div><b><label id="titre">Titre : </label><span><?= $articles[$i]->getTitre() ?></span></b></div>
+                    </tr>
+                    <tr>
+                        <div><b><label id="descript">Description : </label></b><span><?= $articles[$i]->getDescription() ?></span></div>
+                    </tr>
+                    <tr>
+                        <div><b><label id="dateCrea">Date de création : </label></b><span><?= $articles[$i]->getDate_creation()->format('d/m/Y') ?></span></div>
+                    </tr>
+
+                </table>
+            
                 <div>
-                    <label>Disponibilité :</label>
-                    <span>
+                    <h4><label id="prix">Prix : </label></h4>
+                    <h2><span id="span_prix"><?= $articles[$i]->getPrix() ?>€</span></h2>
+                </div>
+                <div><b><label id="nom">Nom de photo : </label></b><span><?= $articles[$i]->getPhoto() ?></span></div>
+                <div><b><label id="dispo">Disponibilité :</label></b><span>
+
                         <?php if ($articles[$i]->getDisponible() == '1') : ?>
                             Disponible
                         <?php else : ?>

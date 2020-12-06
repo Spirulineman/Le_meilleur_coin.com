@@ -1,111 +1,180 @@
+/* ************************************************************************** */
+/*                  ---------------  LESS  --------------------               */
+/* ************************************************************************** */
 body {
   background-color: #474747;
-  background-image: url("image/istockphoto-1138395421-612x612.jpg");
+  background-image: url("images/__BackGround_/dse_background_05_gradient_white.png");
   background-size: cover;
   align-content: center;
-  color: rgba(250,235,215,0.582);
+  color: rgba(3, 3, 3, 0.582);
+  /* ************************************************************************** */
+  /*                                    TABLE                                   */
+  /* ************************************************************************** */
+  /* ****************************** TD_ALL ****************************** */
 }
-body h3>.th_h3 {
+body h3 > .th_h3 {
   background-color: #89898d;
   border-radius: 5px 20px 5px;
   color: #ff7b00;
   padding-left: 25px;
   padding-right: 25px;
-  text-shadow: 2px 1px rgba(22,22,22,0.658);
+  text-shadow: 2px 1px rgba(22, 22, 22, 0.658);
 }
-body >table {
+body > table {
   border-spacing: 0.5rem;
+  background-color: rgba(255, 127, 80, 0.226);
 }
-body >table >thead>thead>#thead_table {
+body > table > thead#thead_table {
   border-radius: 5px 20px 5px;
+  text-shadow: 1px 1px rgba(17, 17, 17, 0.596);
 }
-body >table>thead>tr {
+body > table > thead > tr {
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #0e0f0f;
+  color: white;
   width: max-content;
 }
-body >table>thead>tr >#th {
-  border-top: 2px solid #575756;
-  border-radius: 5px 20px 5px/65px 65px;
+body > table > thead > tr > th {
+  border-bottom: 2px solid #13130e;
+  padding: 0px 15px 0px 15px;
 }
-body >table>thead>tr >#th_1 {
+body > table > thead > tr > th#th_titre {
+  border-top: 2px solid #13130e;
+  border-radius: 5px 20px 0.07692308px 65px;
+}
+body > table > thead > tr > th#th_descript {
   color: #e69935;
+  border-top: 2px solid #13130e;
 }
-body >table>thead>tr >#th_2 {
+body > table > thead > tr > th#th_dateCrea {
+  border-top: 2px solid #13130e;
   color: #f73a19;
   padding: 5px;
   text-align: center;
 }
-body >table>thead>tr >#td_moy {
+body > table > thead > tr > th#th_prix {
+  border-top: 2px solid #13130e;
   color: #df912b;
   padding: 5px;
   text-align: center;
 }
-body >table>thead>tr >th>#td_moy_number {
+body > table > thead > tr > th#th_photo {
+  border-top: 2px solid #13130e;
   color: #f73a19;
   text-align: center;
 }
-body >table>tbody>tr >#td_all_NOM {
-  background-color: rgba(10,10,15,0.801);
-  color: #ee4511;
-  text-align: left;
-  text-transform: uppercase;
-  padding: 0px 8px 0px 8px;
-}
-body >table>tbody>tr #td_all_Prenom {
-  background-color: rgba(10,10,15,0.644);
-  color: rgba(238,142,17,0.705);
-  padding: 0px 8px 0px 8px;
-}
-body >table>tbody>tr #td_all_Date {
-  background-color: rgba(10,10,15,0.466);
+body > table > thead > tr > th#th_dispo {
+  border-top: 2px solid #13130e;
+  color: #f73a19;
   text-align: center;
 }
-body >table>tbody>tr #td_all_Moy {
-  background-color: rgba(206,77,54,0.411);
+body > table > thead > tr > th#th_modif {
+  border-top: 2px solid #13130e;
+  color: #f73a19;
+  text-align: center;
+}
+body > table > thead > tr > th#th_suppr {
+  border-top: 2px solid #13130e;
+  color: #f73a19;
+  text-align: center;
+}
+body > table > tbody > tr > td#titre {
+  border-top: 2px solid #13130e;
+  color: black;
+  margin-left: 15px;
+  padding: 0px 0px 15px 15px;
+  border-bottom: 2px solid #13130e;
+  border-radius: 5px 20px 0.07692308px 65px;
+}
+body > table > tbody > tr > td #titre {
+  color: red;
+  padding: 0px 15px 0px 15px;
+  margin-right: 10px;
+}
+body > table > tbody > tr > td #td_all_Prenom {
+  background-color: rgba(10, 10, 15, 0.644);
+  color: rgba(238, 142, 17, 0.705);
+  padding: 0px 8px 0px 8px;
+}
+body > table > tbody > tr > td #td_all_Date {
+  background-color: rgba(10, 10, 15, 0.466);
+  text-align: center;
+}
+body > table > tbody > tr > td #td_all_Moy {
+  background-color: rgba(206, 77, 54, 0.411);
   text-align: center;
   border: solid 1px transparent;
   border-left-color: #fa0e0e;
   color: #d44545;
-  text-shadow: 1px 2px rgba(22,22,22,0.658);
+  text-shadow: 1px 2px rgba(22, 22, 22, 0.658);
   border-radius: 50%;
 }
-body >table>tbody>tr #td_all_App {
-  background-color: rgba(167,126,65,0.384);
+body > table > tbody > tr > td #td_all_App {
+  background-color: rgba(167, 126, 65, 0.384);
   text-align: center;
-  text-shadow: 1px 1px rgba(22,22,22,0.658);
+  text-shadow: 1px 1px rgba(22, 22, 22, 0.658);
   padding: 0px 8px 0px 8px;
 }
-body >table>tbody>tr #td_all_Modif {
-  background-color: rgba(168,204,165,0.164);
+body > table > tbody > tr > td #td_all_Modif {
+  background-color: rgba(168, 204, 165, 0.164);
   text-align: center;
-  text-shadow: 1px 1px rgba(22,22,22,0.658);
+  text-shadow: 1px 1px rgba(22, 22, 22, 0.658);
   border: solid 2px transparent;
   border-radius: 5px 20px 5px;
-  border-left-color: rgba(42,250,14,0.692);
+  border-left-color: rgba(42, 250, 14, 0.692);
   padding: 7px;
   width: auto;
 }
-body >table>tbody>tr #td_all_Modif >#a_modif {
-  color: rgba(248,248,248,0.479);
-  text-shadow: 1px 1px rgba(22,22,22,0.658);
+body > table > tbody > tr > td #td_all_Modif > #a_modif {
+  color: rgba(248, 248, 248, 0.479);
+  text-shadow: 1px 1px rgba(22, 22, 22, 0.658);
 }
-body >table>tbody>tr #td_all_Delete {
-  background-color: rgba(204,165,165,0.164);
+body > table > tbody > tr > td #td_all_Delete {
+  background-color: rgba(204, 165, 165, 0.164);
   text-align: center;
-  text-shadow: 1px 1px rgba(22,22,22,0.658);
+  text-shadow: 1px 1px rgba(22, 22, 22, 0.658);
   border: solid 2px transparent;
   border-radius: 20px 5px 20px;
-  border-right-color: rgba(250,14,14,0.692);
+  border-right-color: rgba(250, 14, 14, 0.692);
   padding: 7px;
   width: auto;
 }
-body >table>tbody>tr #td_all_Delete >#a_Delete {
-  color: rgba(253,6,6,0.616);
-  text-shadow: 1px 1px rgba(17,17,17,0.596);
+body > table > tbody > tr > td #td_all_Delete > #a_Delete {
+  color: rgba(253, 6, 6, 0.616);
+  text-shadow: 1px 1px rgba(17, 17, 17, 0.596);
 }
-body>table>tfoot>tr {
+body > div#panier {
+  background-color: rgba(204, 165, 165, 0.164);
+  text-align: center;
+  text-shadow: 1px 1px rgba(22, 22, 22, 0.774);
+  border: solid 2px transparent;
+  border-radius: 20px 5px 20px;
+  border-right-color: rgba(250, 14, 14, 0.692);
+  padding: 7px;
+  width: auto;
+}
+body > div#panier > a#link_panier {
+  color: red;
+}
+body > div#article {
+  text-align: center;
+  /* *******   GRID ****** */
+  display: grid;
+  grid: repeat(2, 60px) / auto-flow 80px;
+  grid-auto-rows: auto;
+  grid-auto-columns: fit-content(20%);
+  grid-column: 1;
+}
+body > div#article > div {
+  background-color: #8ca0ff;
+  width: 50px;
+  height: 50px;
+}
+/* *******   FIN GRID ****** */
+/* ************************************************************************** */
+/*                                    TFOOT                                   */
+/* ************************************************************************** */
+body > table > tfoot > tr {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #0e0f0f;
@@ -113,24 +182,24 @@ body>table>tfoot>tr {
   width: max-content;
   border: 5px solid #f7f5f5;
 }
-body>table>tfoot>tr >#th_foot {
+body > table > tfoot > tr > #th_foot {
   border-top: 2px solid #575756;
-  border-radius: 5px 20px 5px/65px 65px;
+  border-radius: 5px 20px 0.07692308px 65px;
 }
-body>table>tfoot>tr >#th_1 {
+body > table > tfoot > tr > #th_1 {
   color: #e69935;
 }
-body>table>tfoot>tr >#th_2 {
+body > table > tfoot > tr > #th_2 {
   color: #f73a19;
   padding: 5px;
   text-align: center;
 }
-body>table>tfoot>tr >#td_moy {
+body > table > tfoot > tr > #td_moy {
   color: #df912b;
   padding: 5px;
   text-align: center;
 }
-body>table>tfoot>tr >th>#td_moy_number {
+body > table > tfoot > tr > th > #td_moy_number {
   color: #f73a19;
   text-align: center;
 }
@@ -142,12 +211,13 @@ div.reponse {
   padding-left: 15px;
   width: max-content;
 }
-div.reponse >p.reponse {
+div.reponse > p.reponse {
   text-align: left;
   padding-left: 60px;
   padding-right: 60px;
   padding-bottom: 10px;
 }
-div.reponse >h3.reponse {
+div.reponse > h3.reponse {
   color: #f9faf998;
 }
+/* ************************************************************************** */
