@@ -16,8 +16,7 @@ require_once "../../../outil/outil.php";
 
 
 if (isset($_GET['id'])) {
-    
     $articleModel = new ArticleModel();
-    $articleModel->deleteArticle($_GET['id']);
+    $articleModel->deleteArticle(intval($_GET['id']));
     header_location('get_article.php');
 }

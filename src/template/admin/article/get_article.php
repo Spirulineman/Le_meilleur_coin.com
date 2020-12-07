@@ -19,7 +19,7 @@ require_once "../../../outil/outil.php";
 session_start();
 
 $articleModel = new ArticleModel();
-$articles = $articleModel->selectAllArticle();
+$articles = $articleModel->selectAllArticleAdmin();
 
 // pre_var_dump($_SESSION["userconnecte"]->getAdmin());
 ?>
@@ -71,7 +71,7 @@ $articles = $articleModel->selectAllArticle();
                         <?php endif ?>
                     </td>
                     <td><a href="update_article.php?id=<?= $articles[$i]->getId() ?>">Modifier</a></td>
-                    <td><a href="delete_article.php?id=<?= $articles[$i]->getId() ?>">suprimer</a></td>
+                    
                 </tr>
             <?php endfor ?>
         </tbody>
