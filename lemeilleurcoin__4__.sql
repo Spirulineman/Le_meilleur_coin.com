@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 04 déc. 2020 à 16:29
+-- Généré le :  sam. 05 déc. 2020 à 23:07
 -- Version du serveur :  5.7.17
 -- Version de PHP :  7.1.3
 
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `lemeilleurcoin`
 --
-CREATE DATABASE `lemeilleurcoin`;
+
 -- --------------------------------------------------------
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `article` (
   `id_categorie` int(11) UNSIGNED DEFAULT NULL,
   `prix` varchar(255) NOT NULL,
   `id_user` int(11) UNSIGNED DEFAULT NULL,
-  `photo` varchar(255) NOT NULL,
+  `photo` varchar(255) DEFAULT NULL,
   `disponible` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -57,9 +57,10 @@ INSERT INTO `article` (`id`, `titre`, `description`, `date_creation`, `id_catego
 (15, 'là on est bien', 'là on est bien', '2020-12-03 10:35:56', NULL, '23', 6, 'photo_SGJPEYQU.jpg', 0),
 (16, 'là on est bien', 'là on est bien', '2020-09-24 10:36:26', NULL, '25', 7, '1240x828_px_cave_China_forest_Jungle_landscape_men_nature-573578.jpg!d.jpg', 0),
 (17, 'kilo', 'coucou', '2020-12-03 11:06:32', NULL, '25', 2, '2020_12_03_11_06_32b360299fb7ff02d90ce6bb1e03f82f74.jpg', 0),
-(18, 'totologie_2_', 'juju', '2020-12-03 11:20:02', NULL, '12', 7, '2020_12_03_11_20_02b360299fb7ff02d90ce6bb1e03f82f74.jpg', 1),
+(18, 'totologie_2_', 'jujup', '2020-12-03 11:20:02', NULL, '12', 7, '2020_12_03_11_20_02b360299fb7ff02d90ce6bb1e03f82f74.jpg', 1),
 (19, 'là on est bien', 'là on est bien', '2020-12-03 10:36:26', NULL, '25', 7, '1240x828_px_cave_China_forest_Jungle_landscape_men_nature-573578.jpg!d.jpg', 0),
-(20, 'gigot', 'd\'agneau', '2020-12-03 17:47:24', NULL, '22', 7, '', 0);
+(20, 'gigot', 'd\'agneau', '2020-12-03 17:47:24', NULL, '22', 7, '', 0),
+(22, 'ok_ok_1_u oooooooooooo', 'eeeeeeeeeeeeeeeee', '2020-12-05 21:39:48', NULL, '141', 11, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -117,12 +118,16 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `adresse`, `admin`, `telephone`, `active`, `mail`, `pwd`) VALUES
 (1, 'Karfoul', 'Bobby', '29 rue des Madières22854 Langueux', 0, '0102030405', 1, 'Mazen@local.com', NULL),
-(2, 'Covert', 'Harry', '29 rue des Madières\r\n22854 Langueux', 0, '0102030405', 0, 'HarryCovert@lamarmite.com', NULL),
+(2, 'Covert', 'Harry', '29 rue des Madières22854 Langueux', 0, '0102030405', 1, 'HarryCovert@lamarmite.com', NULL),
 (3, 'bouboa', 'bouboa', '29 rue des Madières22854 Langueux', 0, '0102010201', 1, 'test@test.com', '$2y$10$fP0lG4rh4s5UVHuOIV0y7ex2w9/mhrpeN3oh.TlTOMZ5Z/dRYGJ8a '),
-(5, 'iikgvkjg', 'ggg', 'Confirme_Password', 1, '11111111111', 1, 'mail.1@mail.com', '$2y$10$YBp6caad41j50o/pKD3GqOQEoBgZKOTJ81ABuC57xCcnxA4/Kp.PO'),
-(6, 'pppp', 'pppp', 'pppp', 0, '11111111111', 1, 'pppp@pppp', '$2y$10$whJuC6Pz7uBIh3/EGQRCVuJ5N9W6HmRe6gvvQHW1o5ld0lLqo1yb.'),
+(5, 'iikgvkjg', 'ggg', 'Confirme_Password', 1, '11111111111', 0, 'mail.1@mail.com', '$2y$10$YBp6caad41j50o/pKD3GqOQEoBgZKOTJ81ABuC57xCcnxA4/Kp.PO'),
+(6, 'pppp', 'pppp', 'pppp', 0, '11111111111', 0, 'pppp@pppp', '$2y$10$whJuC6Pz7uBIh3/EGQRCVuJ5N9W6HmRe6gvvQHW1o5ld0lLqo1yb.'),
 (7, 'kkkkkljjjj', 'kkkkk', 'kkkkk', 0, '00000000000', 1, 'kkkkk@kkkkk.com', '$2y$10$KzvN72H.hd2vKU9U0EUkjOngGc7PrrClV7bLWqRZQz3Lvs6vsJ1QW'),
-(9, 'test23', 'test23', 'test23', 0, '51511212121', 1, 'test23@test23.com', '$2y$10$LHWnP8ZyCUXgTi3RBik87.zlCyp7uKy.Rmd6/2dDKVIuut0oqnMzW');
+(9, 'test23', 'test23', 'test23', 0, '51511212121', 1, 'test23@test23.com', '$2y$10$LHWnP8ZyCUXgTi3RBik87.zlCyp7uKy.Rmd6/2dDKVIuut0oqnMzW'),
+(10, 'Merde', 'jean', 'ma rue locate', 0, '0220220220', 1, 'jeanMerde@gmail.com', '$2y$10$GzMNzvZyEtSpqJL61CI.meiRi8Ho63etmTQATCXSuMtZKlgROvOAa'),
+(11, 'annasse', 'anne', 'rue des fruitiers', 0, '1202458575', 0, 'anneannasse@gmail.com', '$2y$10$l1Jy/BSx5sAxFmVX3O09PutwxZlY.IIiEDySkEduAhZh67b.Ga.GS'),
+(12, 'time', 'vincent', 'rue des portes monnaies', 0, '0342151619', 1, 'vincenttime@gmail.com', '$2y$10$qJ3HCqrKk6XQciL3cEk0mOboMObWpjUmDZnrFH.1qnFbO11SX2TgS'),
+(16, 'tata', 'tata', 'rue tata', 0, '017458257857', 1, 'tata@gmail.com', '$2y$10$PTtr3ecLTL2UMvsbkMi1MO7fyUJ/geV2uThVcG1beiiicBkmugoe.');
 
 --
 -- Index pour les tables déchargées
@@ -165,7 +170,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT pour la table `categorie`
 --
@@ -180,7 +185,7 @@ ALTER TABLE `commande`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- Contraintes pour les tables déchargées
 --

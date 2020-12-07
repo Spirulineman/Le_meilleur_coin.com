@@ -11,7 +11,7 @@ require_once "../../../config/class-singleton.php";
 
 require_once "../../../Model/UserModel.php";
 require_once "../../../Entity/User.php";
-// require_once "../../../inc/outils__perso__jonas__.php";
+// require_once "../../inc/outils__perso__jonas__.php";
 
 /* ************************************************************************** */
 
@@ -86,11 +86,14 @@ if (isset($_POST['create'])) {
 
     if (empty($errors)) {
 
-        $userModel->createUser($user);
+        $user = $userModel->createUser($user);
+
+        header('Location: User_connect.php?success_inscriptoin=1');
+        die;
+        
     }
 
-    header('Location: GEt_users.php');
-    die;
+    
 }
 
 
@@ -103,16 +106,15 @@ if (isset($_POST['create'])) {
 
 <!-- demarre une tamporisation de sortie -->
 <?php ob_start(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../../lib/jquery-3.5.1.min.js"></script>
-    <script src="../../lib/jquery.validate.min.js"></script>
-    <script src="../../lib/messages_fr.js"></script>
+    <script src="../../../lib/jquery-3.5.1.min.js"></script>
+    <script src="../../../lib/jquery.validate.min.js"></script>
+    <script src="../../../lib/messages_fr.js"></script>
     <script>
         $(function() {
 
@@ -166,12 +168,11 @@ if (isset($_POST['create'])) {
 
         });
     </script>
-    <title>Créer un Utilisateur</title>
+    <title>Inscription</title>
 </head>
 
+<h1>Inscription</h1>
 <body>
-
-    <h1>Créer un Utilisateur</h1>
     <form method="post" id="crea">
 
         <div><input type="text" name="nom" placeholder="Nom"></div>
@@ -187,11 +188,10 @@ if (isset($_POST['create'])) {
 
     </form>
 
-    <a href="Get_users.php">Retour à l'accueil</a>
+    <!-- <a href="../../index.php">Retour à l'accueil</a> -->
 </body>
 
 </html>
 
-<!-- fermer la tamporisation de sortie et le mettre dans une variable -->
 <?php $content = ob_get_clean(); ?>
 <?php require_once '../../../view_template.php'; ?>

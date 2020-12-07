@@ -1,14 +1,14 @@
 <?php
 /* ************************************************************************** */
 
-require_once "../../config/class-singleton.php";
+require_once "../../../config/class-singleton.php";
 require_once 'panier.php';
-require_once '../../Model/ArticleModel.php';
-require_once '../../Entity/Article.php';
+require_once '../../../Model/ArticleModel.php';
+require_once '../../../Entity/Article.php';
 
-require_once "../../Entity/User.php";
+require_once "../../../Entity/User.php";
 
-require_once "../../outil/outil.php";
+require_once "../../../outil/outil.php";
 
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ if (!empty($_GET['id_article_panier'])) {
     //var_dump($_SESSION['panier']);
 }
 
-//pre_var_dump($_SESSION['panier'],null,true);
 if(isset($_POST['commande'])){
+    //var_dump($_SESSION['panier']);
     if(!empty($_SESSION['panier'])){
 
         for ($i = 0; $i < count($_SESSION['panier']); $i++) {
             //pre_var_dump(intval($_SESSION['panier'][$i]));
-            pre_var_dump($_SESSION['panier']);
+            //pre_var_dump($_SESSION['panier']);
         
 
             if($articleModel->finCommande($user->getId(), intval($_SESSION['panier'][$i]))){
@@ -71,16 +71,15 @@ if(isset($_POST['commande'])){
             $_SESSION['panier'] = array();
         }
 
-        header('Location: ../../index.php?success=true');
+        header('Location: ../../../index.php?success=true');
         die;
     }
 
     
 }
 
-
-
 $articles = $articleModel->selectArticlePanier($_SESSION['panier']);
+// pre_var_dump($_SESSION['panier']);
 ?>
 
 <!-- demarre une tamporisation de sortie -->
@@ -96,7 +95,8 @@ $articles = $articleModel->selectArticlePanier($_SESSION['panier']);
     </thead>
     <tbody>
         <?php if (!empty($articles)) : ?>
-            <?php for ($i = 0; $i < count($articles); $i++) : $total += $articles[$i]->getPrix()  ?>
+            <?php for ($i = 0; $i < count($articles); $i++) : ?>
+                <?php $total += (int) $articles[$i]->getPrix()  ?>
                 <tr>
                     <td><?= $articles[$i]->getTitre() ?></td>
                     <td><?= $articles[$i]->getPrix() ?> €</td>
@@ -110,12 +110,22 @@ $articles = $articleModel->selectArticlePanier($_SESSION['panier']);
 </table>
 
 <label>Prix Total : </label><span><?php echo $total ?>€</span>
-<a href="../../index.php">Retour </a>
+<a href="../../../index.php">Retour </a>
 
 <br>
-<form method="post" id="commande">
-    <input type="submit" value="payer la commande" id="commande" name="commande">
-</form>
+<?php if (isset($_SESSION["userconnecte"]) && !empty($_SESSION['panier'])) : ?>
+
+    <form method="post" id="commande">
+        <input type="submit" value="payer la commande" id="commande" name="commande">
+    </form>
+
+<?php else : ?>
+
+    <?php if (!empty($_SESSION['panier'])) : ?>
+        <p>Connectez vous pour finaliser la commande</p>
+    <?php endif ?>
+    
+<?php endif ?>
 
 <?php $content = ob_get_clean(); ?>
-<?php require_once '../../view_template.php'; ?>
+<?php require_once '../../../view_template.php'; ?>

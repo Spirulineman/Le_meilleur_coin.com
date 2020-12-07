@@ -67,7 +67,7 @@ if (isset($_POST['add'])) {
     if (empty($errors)) {
 
         $articleModel->createArticle($titre, $description, $prix, $photo, $user->getId());
-        header_location('get_article.php');
+        header_location('get_all_article.php');
     }
     /* else{
         pre_var_dump('create_article.php l 69', $errors);
@@ -81,15 +81,14 @@ if (isset($_POST['add'])) {
 
 <!-- demarre une tamporisation de sortie -->
 <?php ob_start(); ?>
-
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creer un Article</title>
-</head>
+</head> -->
 
 <body>
     <h1> Créer des Articles </h1>

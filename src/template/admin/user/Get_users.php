@@ -12,7 +12,7 @@ require_once "../../../config/class-singleton.php";
 
 require_once "../../../Model/UserModel.php";
 require_once "../../../Entity/User.php";
-require_once "../../../inc/outils__perso__jonas__.php";
+// require_once "../../../inc/outils__perso__jonas__.php";
 
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ $users = $userModel->selectAllUser();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+<!-- demarre une tamporisation de sortie -->
+<?php ob_start(); ?>
 
 <body>
     <div>
@@ -74,7 +77,12 @@ $users = $userModel->selectAllUser();
         </tbody>
 
     </table>
-    <a href="../../../index.php">Retour à l'Accueil</a>
+    <a href="../article/get_article.php">Retour à l'Accueil</a>
+    <a href="create_user.php">Créate un utilisateur</a>
 </body>
 
 </html>
+
+<!-- fermer la tamporisation de sortie et le mettre dans une variable -->
+<?php $content = ob_get_clean(); ?>
+<?php require_once '../../../view_template.php'; ?>
