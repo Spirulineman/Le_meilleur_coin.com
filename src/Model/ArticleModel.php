@@ -14,6 +14,17 @@ class ArticleModel extends Model{
         return $articles; 
     }
 
+    public function selectAllArticleAdmin(){
+
+        $requete = "SELECT * FROM article order by date_creation desc";
+        $stmt= $this->Db_connect->prepare($requete);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Article::class);
+        $stmt->execute(); 
+        $articles = $stmt->fetchAll();
+
+        return $articles; 
+    }
+
     public function selectArticleById ($id){
 
         $requete= "SELECT * FROM article WHERE id = :id";
@@ -70,11 +81,11 @@ class ArticleModel extends Model{
         );
     }
 
-    public function DeleteArticle($id)
+    public function deleteArticle($id)
     {
         $requete = "DELETE FROM article WHERE id = :id";
         $stmt = $this->Db_connect->prepare($requete);
-        $stmt->execute([ ':id' => $id ]);
+        return $stmt->execute([ ':id' => $id ]);
     }
 
     public function selectArticlePanier($ids_articles){

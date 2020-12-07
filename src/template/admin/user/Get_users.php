@@ -47,6 +47,7 @@ $users = $userModel->selectAllUser();
             <th>Adresse</th>
             <th>Status</th>
             <th>mail</th>
+            <th>Admin</th>
             <th>Téléphone</th>
         </thead>
         <tbody>
@@ -66,6 +67,12 @@ $users = $userModel->selectAllUser();
                             echo "ACTIF";
                         } ?></td>
                     <td><?= $users[$i]->getMail() ?></td>
+                    <td><?php
+                        if ($users[$i]->getAdmin() == '0') {
+                            echo "Normal";
+                        } else {
+                            echo "Admin";
+                        } ?></td>
                     <td><?= $users[$i]->getTelephone() ?></td>
                     <td><a href="Update_user.php?id=<?= $users[$i]->getId() ?>">Modifier</a></td>
                     <td></td>
