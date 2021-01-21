@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-21T13:49:05.204Z" agent="5.0 (Windows)" etag="6d3fAtQBRR7r_kYmZxZh" version="14.2.4" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2021-01-21T14:01:53.528Z" agent="5.0 (Windows)" etag="C7fx_7-7xNwQcbVTwhel" version="14.2.4" type="github" pages="3">
   <diagram id="ULwS5uZ5bdoghOCn8P2p" name="MCD">
     <mxGraphModel dx="2114" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
@@ -1013,6 +1013,60 @@
               <mxPoint x="290" y="285" />
             </Array>
           </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="X8xVFmBchExiEdiBN6pj" name="Use_Case">
+    <mxGraphModel dx="877" dy="2280" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-0" />
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-1" parent="xfwfLlhPRVPcNkENJxRp-0" />
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=13;orthogonalLoop=1;jettySize=auto;html=1;shadow=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;fontSize=13;" edge="1" parent="xfwfLlhPRVPcNkENJxRp-1" source="xfwfLlhPRVPcNkENJxRp-3" target="xfwfLlhPRVPcNkENJxRp-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-3" value="Création compte" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#d79b00;fillColor=#ffe6cc;fontSize=13;align=center;" vertex="1" parent="xfwfLlhPRVPcNkENJxRp-1">
+          <mxGeometry x="280" y="40" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=13;orthogonalLoop=1;jettySize=auto;html=1;shadow=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;fontSize=13;" edge="1" parent="xfwfLlhPRVPcNkENJxRp-1" source="xfwfLlhPRVPcNkENJxRp-4" target="xfwfLlhPRVPcNkENJxRp-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-4" value="Afficher le formulaire" style="whiteSpace=wrap;html=1;rounded=1;fontSize=13;strokeColor=#d79b00;fillColor=#ffe6cc;" vertex="1" parent="xfwfLlhPRVPcNkENJxRp-1">
+          <mxGeometry x="280" y="150" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=13;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;shadow=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;fontSize=13;" edge="1" parent="xfwfLlhPRVPcNkENJxRp-1" source="xfwfLlhPRVPcNkENJxRp-6" target="xfwfLlhPRVPcNkENJxRp-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="530" y="320" />
+              <mxPoint x="530" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-9" value="non" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];fontSize=13;labelBorderColor=none;" vertex="1" connectable="0" parent="xfwfLlhPRVPcNkENJxRp-8">
+          <mxGeometry x="-0.4984" y="-1" relative="1" as="geometry">
+            <mxPoint x="-54" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-11" value="oui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=13;orthogonalLoop=1;jettySize=auto;html=1;shadow=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;fontSize=13;" edge="1" parent="xfwfLlhPRVPcNkENJxRp-1" source="xfwfLlhPRVPcNkENJxRp-6" target="xfwfLlhPRVPcNkENJxRp-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-6" value="&lt;div&gt;validation&lt;/div&gt;&lt;div&gt;?&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;fontSize=13;strokeColor=#d79b00;fillColor=#ffe6cc;" vertex="1" parent="xfwfLlhPRVPcNkENJxRp-1">
+          <mxGeometry x="335" y="280" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=13;orthogonalLoop=1;jettySize=auto;html=1;shadow=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;fontSize=13;" edge="1" parent="xfwfLlhPRVPcNkENJxRp-1" source="xfwfLlhPRVPcNkENJxRp-10" target="xfwfLlhPRVPcNkENJxRp-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-10" value="&lt;div&gt;Afficher les annonces&lt;/div&gt;&lt;div&gt;+&lt;br&gt;&lt;/div&gt;&lt;div&gt;lien vers le formulaire de création d&#39;annonce&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;fontSize=13;strokeColor=#d79b00;fillColor=#ffe6cc;" vertex="1" parent="xfwfLlhPRVPcNkENJxRp-1">
+          <mxGeometry x="280" y="410" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=13;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;shadow=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;fontSize=13;" edge="1" parent="xfwfLlhPRVPcNkENJxRp-1" source="xfwfLlhPRVPcNkENJxRp-12" target="xfwfLlhPRVPcNkENJxRp-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-12" value="Afficher les annonces" style="whiteSpace=wrap;html=1;rounded=1;fontSize=13;strokeColor=#d79b00;fillColor=#ffe6cc;" vertex="1" parent="xfwfLlhPRVPcNkENJxRp-1">
+          <mxGeometry x="315" y="-70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-14" value="formulaire d&#39;annonce" style="whiteSpace=wrap;html=1;rounded=1;fontSize=13;strokeColor=#d79b00;fillColor=#ffe6cc;" vertex="1" parent="xfwfLlhPRVPcNkENJxRp-1">
+          <mxGeometry x="315" y="580" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
