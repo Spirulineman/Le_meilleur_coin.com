@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-22T09:28:06.694Z" agent="5.0 (Windows)" etag="rcztZBWORV4oV6ciYcjz" version="14.2.4" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-01-22T09:30:09.224Z" agent="5.0 (Windows)" etag="eJNprp8Vxdv-asgAAJVa" version="14.2.4" type="github" pages="3">
   <diagram id="ULwS5uZ5bdoghOCn8P2p" name="MCD">
     <mxGraphModel dx="2114" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
@@ -1173,10 +1173,10 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="xfwfLlhPRVPcNkENJxRp-37" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Profil&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;fontSize=13;strokeColor=#d79b00;fillColor=#ffe6cc;" vertex="1" parent="xfwfLlhPRVPcNkENJxRp-1">
-          <mxGeometry x="40" y="230" width="120" height="120" as="geometry" />
+          <mxGeometry x="40" y="260" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="xfwfLlhPRVPcNkENJxRp-39" value="Tableau de bord" style="whiteSpace=wrap;html=1;rounded=1;fontSize=13;strokeColor=#d79b00;fillColor=#ffe6cc;" vertex="1" parent="xfwfLlhPRVPcNkENJxRp-1">
-          <mxGeometry x="40" y="400" width="120" height="60" as="geometry" />
+          <mxGeometry x="40" y="430" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="xfwfLlhPRVPcNkENJxRp-41" value="&lt;div&gt;Messagerie&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;fontSize=13;strokeColor=#d79b00;fillColor=#ffe6cc;" vertex="1" parent="xfwfLlhPRVPcNkENJxRp-1">
           <mxGeometry x="-160" y="290" width="120" height="60" as="geometry" />
@@ -1298,7 +1298,7 @@
           <mxGeometry x="-180" y="-105" width="110" height="110" as="geometry" />
         </mxCell>
         <mxCell id="xfwfLlhPRVPcNkENJxRp-86" value="Vendeur" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;labelBackgroundColor=#ffffff;fillColor=none;gradientColor=none;fontSize=13;" vertex="1" parent="xfwfLlhPRVPcNkENJxRp-1">
-          <mxGeometry x="85" y="234" width="30" height="60" as="geometry" />
+          <mxGeometry x="85" y="264" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="xfwfLlhPRVPcNkENJxRp-89" value="Utilisateur" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;labelBackgroundColor=#ffffff;fillColor=none;gradientColor=none;fontSize=13;" vertex="1" parent="xfwfLlhPRVPcNkENJxRp-1">
           <mxGeometry x="-20" y="-200" width="30" height="60" as="geometry" />
