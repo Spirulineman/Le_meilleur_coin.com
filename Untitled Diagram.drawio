@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-22T09:14:10.505Z" agent="5.0 (Windows)" etag="yiEE8bz7I_SJ7ahUEbs6" version="14.2.4" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-01-22T09:15:06.603Z" agent="5.0 (Windows)" etag="L6qyUVvI7bO3Y2jRtKNI" version="14.2.4" type="github" pages="3">
   <diagram id="ULwS5uZ5bdoghOCn8P2p" name="MCD">
     <mxGraphModel dx="2114" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
@@ -1290,13 +1290,13 @@
         <mxCell id="xfwfLlhPRVPcNkENJxRp-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=13;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;shadow=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;fontSize=13;" edge="1" parent="xfwfLlhPRVPcNkENJxRp-1" source="xfwfLlhPRVPcNkENJxRp-79" target="xfwfLlhPRVPcNkENJxRp-47">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="xfwfLlhPRVPcNkENJxRp-84" value="non" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;" vertex="1" connectable="0" parent="xfwfLlhPRVPcNkENJxRp-83">
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-84" value="non" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];fontSize=13;" vertex="1" connectable="0" parent="xfwfLlhPRVPcNkENJxRp-83">
           <mxGeometry x="0.1304" y="1" relative="1" as="geometry">
-            <mxPoint as="offset" />
+            <mxPoint x="-112.43" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="xfwfLlhPRVPcNkENJxRp-79" value="&lt;div&gt;meilleure enchère&lt;/div&gt;&lt;div&gt;?&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;fontSize=13;strokeColor=#d79b00;fillColor=#ffe6cc;" vertex="1" parent="xfwfLlhPRVPcNkENJxRp-1">
-          <mxGeometry x="-167.5" y="-90" width="80" height="80" as="geometry" />
+        <mxCell id="xfwfLlhPRVPcNkENJxRp-79" value="&lt;div&gt;meilleure &lt;br&gt;&lt;/div&gt;&lt;div&gt;enchère&lt;/div&gt;&lt;div&gt;?&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;fontSize=13;strokeColor=#d79b00;fillColor=#ffe6cc;" vertex="1" parent="xfwfLlhPRVPcNkENJxRp-1">
+          <mxGeometry x="-180" y="-105" width="110" height="110" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
