@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-03-11T12:59:03.183Z" agent="5.0 (Windows)" etag="nRvKdE2NzC8reS-KGKK3" version="14.4.6" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2021-03-12T08:36:20.497Z" agent="5.0 (Windows)" etag="hlZoY8xH8WQ1KfXqMW-R" version="14.4.6" type="github" pages="6">
   <diagram id="ULwS5uZ5bdoghOCn8P2p" name="MCD">
     <mxGraphModel dx="2111" dy="595" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
@@ -2288,8 +2288,11 @@
         <mxCell id="7916lUutAnJi1uISpwr_-2" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot; align=&quot;center&quot;&gt;FORMATIONS&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK&lt;/td&gt;&lt;td&gt;uniqueId&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;FK1&lt;/td&gt;&lt;td&gt;foreignKey&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;fieldname&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;labelBackgroundColor=#ffffff;fontSize=21;" parent="wwRMz4Aqn5TawtoEJJGn-1" vertex="1">
           <mxGeometry x="480" y="1040" width="180" height="150" as="geometry" />
         </mxCell>
+        <mxCell id="SyQso7dihQKA_9mzwUOp-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="wwRMz4Aqn5TawtoEJJGn-1" source="7916lUutAnJi1uISpwr_-4" target="7916lUutAnJi1uISpwr_-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="7916lUutAnJi1uISpwr_-4" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot; align=&quot;center&quot;&gt;INSCRIPTIONS&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK&lt;/td&gt;&lt;td&gt;uniqueId&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;FK1&lt;/td&gt;&lt;td&gt;foreignKey&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;fieldname&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;labelBackgroundColor=#ffffff;fontSize=21;" parent="wwRMz4Aqn5TawtoEJJGn-1" vertex="1">
-          <mxGeometry x="1120" y="1040" width="180" height="150" as="geometry" />
+          <mxGeometry x="1230" y="1040" width="180" height="150" as="geometry" />
         </mxCell>
         <mxCell id="7916lUutAnJi1uISpwr_-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=21;" parent="wwRMz4Aqn5TawtoEJJGn-1" source="7916lUutAnJi1uISpwr_-6" target="7916lUutAnJi1uISpwr_-8" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -2300,14 +2303,38 @@
         <mxCell id="7916lUutAnJi1uISpwr_-8" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot; align=&quot;center&quot;&gt;RAPPELS&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK&lt;/td&gt;&lt;td&gt;uniqueId&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;FK1&lt;/td&gt;&lt;td&gt;foreignKey&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;fieldname&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;labelBackgroundColor=#ffffff;fontSize=21;" parent="wwRMz4Aqn5TawtoEJJGn-1" vertex="1">
           <mxGeometry x="80" y="1330" width="180" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="7916lUutAnJi1uISpwr_-10" value="&lt;br&gt;&lt;div&gt;FORMULAIRES&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fontSize=21;align=center;verticalAlign=top;labelBackgroundColor=#ffffff;" parent="wwRMz4Aqn5TawtoEJJGn-1" vertex="1">
-          <mxGeometry x="830" y="1060" width="170" height="110" as="geometry" />
+        <mxCell id="7916lUutAnJi1uISpwr_-10" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;FORMULAIRES&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fontSize=21;align=center;verticalAlign=top;labelBackgroundColor=#ffffff;" parent="wwRMz4Aqn5TawtoEJJGn-1" vertex="1">
+          <mxGeometry x="880" y="1060" width="170" height="110" as="geometry" />
         </mxCell>
         <mxCell id="7916lUutAnJi1uISpwr_-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;fontSize=21;" parent="wwRMz4Aqn5TawtoEJJGn-1" source="7916lUutAnJi1uISpwr_-2" target="7916lUutAnJi1uISpwr_-10" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="660" y="1115" as="sourcePoint" />
             <mxPoint x="940" y="1115" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="SyQso7dihQKA_9mzwUOp-0" value="1..n" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="wwRMz4Aqn5TawtoEJJGn-1">
+          <mxGeometry x="280" y="1090" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyQso7dihQKA_9mzwUOp-1" value="1..n" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="wwRMz4Aqn5TawtoEJJGn-1">
+          <mxGeometry x="430" y="1090" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyQso7dihQKA_9mzwUOp-2" value="1..n" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="wwRMz4Aqn5TawtoEJJGn-1">
+          <mxGeometry x="670" y="1090" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyQso7dihQKA_9mzwUOp-3" value="1..n" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="wwRMz4Aqn5TawtoEJJGn-1">
+          <mxGeometry x="830" y="1090" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyQso7dihQKA_9mzwUOp-4" value="1..n" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="wwRMz4Aqn5TawtoEJJGn-1">
+          <mxGeometry x="1060" y="1090" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyQso7dihQKA_9mzwUOp-5" value="1..0" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="wwRMz4Aqn5TawtoEJJGn-1">
+          <mxGeometry x="1180" y="1090" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyQso7dihQKA_9mzwUOp-8" value="" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#ffffff;" vertex="1" parent="wwRMz4Aqn5TawtoEJJGn-1">
+          <mxGeometry x="360" y="1120" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyQso7dihQKA_9mzwUOp-9" value="Cardinalité haute (x..&lt;b&gt;n&lt;/b&gt;_x..&lt;b&gt;n&lt;/b&gt;)&amp;nbsp;: créer une&lt;br&gt;&lt;p class=&quot;MsoNormal&quot;&gt;entité &lt;/p&gt;&lt;br&gt;1à1&amp;nbsp;: fusionnement des entités &lt;br&gt;&lt;p class=&quot;MsoNormal&quot;&gt;1 à n&amp;nbsp;: c’est 1 qui l’emporte&amp;nbsp;: c’est l’entité qui&lt;br&gt;a 1 qui va héberger l’id de celle qui est n&amp;nbsp;: ici&amp;nbsp;: annonce =&amp;gt;&lt;br&gt;id_utilisateur&lt;span&gt;&amp;nbsp; &lt;/span&gt;de même pour catégorie et&lt;br&gt;annonce qui aura id_catégorie&lt;/p&gt;&lt;br&gt;&lt;p class=&quot;MsoNormal&quot;&gt;n à n&amp;nbsp;: égale nouvelle entité&amp;nbsp;: qui s’appelle par&lt;br&gt;le nom de l’action (enchère ou utilisateur_Annonce&amp;nbsp;par ex.) : qui aura les&lt;br&gt;2 ID des deux entités concernées&lt;/p&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="wwRMz4Aqn5TawtoEJJGn-1">
+          <mxGeometry x="760" y="770" width="420" height="260" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
