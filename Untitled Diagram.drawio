@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-03-12T12:49:01.144Z" agent="5.0 (Windows)" etag="STsABxzEcFxRV42l4e87" version="14.4.6" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2021-03-16T09:48:54.989Z" agent="5.0 (Windows)" etag="KRf19mgbohwbWAZCe-GB" version="14.4.6" type="github" pages="7">
   <diagram id="ULwS5uZ5bdoghOCn8P2p" name="MCD">
     <mxGraphModel dx="2111" dy="595" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
@@ -2361,6 +2361,56 @@
         </mxCell>
         <mxCell id="SyQso7dihQKA_9mzwUOp-17" value="" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="wwRMz4Aqn5TawtoEJJGn-1">
           <mxGeometry x="480" y="1300" width="40" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="c8BVUMoF_dgiWXjY2nAM" name="__UX__">
+    <mxGraphModel dx="942" dy="595" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="GY6z61vsfpLi-3auJrru-0" />
+        <mxCell id="GY6z61vsfpLi-3auJrru-1" parent="GY6z61vsfpLi-3auJrru-0" />
+        <mxCell id="GY6z61vsfpLi-3auJrru-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="GY6z61vsfpLi-3auJrru-1">
+          <mxGeometry x="250" y="140" width="430" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="GY6z61vsfpLi-3auJrru-3" value="Accueil" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="GY6z61vsfpLi-3auJrru-1">
+          <mxGeometry x="250" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GY6z61vsfpLi-3auJrru-4" value="PAHOA Boards (Slide)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="GY6z61vsfpLi-3auJrru-1">
+          <mxGeometry x="260" y="160" width="410" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GY6z61vsfpLi-3auJrru-5" value="Accueil&amp;nbsp;&amp;nbsp; -&amp;nbsp; Nos produits&amp;nbsp; -&amp;nbsp; Notre spécificité&amp;nbsp; - Forum&amp;nbsp; -&amp;nbsp;&amp;nbsp;Devenir Revendeur" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="GY6z61vsfpLi-3auJrru-1">
+          <mxGeometry x="260" y="220" width="410" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GY6z61vsfpLi-3auJrru-6" value="Connexion" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="GY6z61vsfpLi-3auJrru-1">
+          <mxGeometry x="550" y="140" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="GY6z61vsfpLi-3auJrru-7" value="Fr / En / Es / Li / Ru" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="GY6z61vsfpLi-3auJrru-1">
+          <mxGeometry x="430" y="140" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="GY6z61vsfpLi-3auJrru-8" value="&lt;div&gt;Mer&lt;/div&gt;&lt;div&gt;Rivière&lt;/div&gt;&lt;div&gt;Balade&lt;/div&gt;&lt;div&gt;Spots&lt;/div&gt;&lt;div&gt;Pêche&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="GY6z61vsfpLi-3auJrru-1">
+          <mxGeometry x="260" y="270" width="50" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="GY6z61vsfpLi-3auJrru-9" value="&lt;div&gt;Nouveauté&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Actualité 1&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;Actualité 2&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Dernier commentaire&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="GY6z61vsfpLi-3auJrru-1">
+          <mxGeometry x="590" y="250" width="80" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="GY6z61vsfpLi-3auJrru-10" value="&lt;div&gt;Comparateur&lt;/div&gt;&lt;div&gt;Concepteur&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="GY6z61vsfpLi-3auJrru-1">
+          <mxGeometry x="770" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GY6z61vsfpLi-3auJrru-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="GY6z61vsfpLi-3auJrru-1" source="GY6z61vsfpLi-3auJrru-5" target="GY6z61vsfpLi-3auJrru-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GY6z61vsfpLi-3auJrru-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.014;entryY=0.664;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="GY6z61vsfpLi-3auJrru-1" source="GY6z61vsfpLi-3auJrru-12" target="GY6z61vsfpLi-3auJrru-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GY6z61vsfpLi-3auJrru-12" value="Concevez votre produit &lt;br&gt;(Slide des conceptions client)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="GY6z61vsfpLi-3auJrru-1">
+          <mxGeometry x="320" y="270" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GY6z61vsfpLi-3auJrru-13" value="Nos produits tendance &lt;br&gt;(Slide des produits favoris)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="GY6z61vsfpLi-3auJrru-1">
+          <mxGeometry x="320" y="350" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GY6z61vsfpLi-3auJrru-15" value="Nos produits pour la Pêche; les Ballades ...&lt;br&gt;(Slide des produits par thèmes)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="GY6z61vsfpLi-3auJrru-1">
+          <mxGeometry x="320" y="430" width="260" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
